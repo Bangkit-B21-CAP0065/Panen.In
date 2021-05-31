@@ -1,4 +1,4 @@
-package com.dicoding.bangkit.b21.cap0065
+package com.panenin.bangkit.b21.cap0065
 
 import org.junit.Test
 
