@@ -17,7 +17,7 @@
         android:textAlignment="center"
         android:textColor="@color/brown_700"
         android:textFontWeight="900"
-        android:textSize="30dp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,11 +26,14 @@
         android:id="@+id/text_jargon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="benih terbaik, awal keberhasilan"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:text="@string/text_jargon"
         android:textAlignment="center"
         android:textColor="@color/brown_700"
         android:textSize="17sp"
-        app:layout_constraintTop_toBottomOf="@+id/text_home"
-        tools:layout_editor_absoluteX="8dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
