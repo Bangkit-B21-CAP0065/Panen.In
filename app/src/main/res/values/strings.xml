@@ -6,4 +6,6 @@
 
     <string name="panen_in">Panen.in</string>
     <string name="text_jargon">benih terbaik, awal keberhasilan</string>
+    <string name="weather_predict_button_tag">Prediksi Cuaca</string>
+    <string name="reccomendation_crop_tag">Rekomendasi Tanaman</string>
 </resources>

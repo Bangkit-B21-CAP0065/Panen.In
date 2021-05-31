@@ -36,4 +36,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home" />
 
+    <Button
+        android:id="@+id/button6"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="100dp"
+        android:layout_height="90dp"
+        android:layout_margin="8dp"
+        android:drawableTop="@drawable/ic_wb_sunny_yellow_24dp"
+        android:layout_weight="1"
+        android:text="@string/weather_predict_button_tag"
+        android:textColor="@color/brown_700"
+        android:textSize="13sp"
+        android:background="@drawable/round_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_jargon" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
