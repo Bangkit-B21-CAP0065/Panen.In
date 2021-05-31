@@ -3,10 +3,12 @@ package com.panenin.bangkit.b21.cap0065
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI.setupActionBarWithNavController
 import androidx.navigation.ui.NavigationUI.setupWithNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.navigation.NavigationView
 import com.panenin.bangkit.b21.cap0065.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView : BottomNavigationView = binding.navView
+        val navView : BottomNavigationView = findViewById(R.id.nav_view)
         val navController = findNavController(this, R.id.nav_host_fragment)
 
         val appBarConfiguration = AppBarConfiguration.Builder(
