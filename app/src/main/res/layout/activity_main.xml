@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/container"
-    android:paddingTop="?android:attr/actionBarSize"
+    android:paddingTop="10dp"
     tools:context="com.panenin.bangkit.b21.cap0065.MainActivity">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
