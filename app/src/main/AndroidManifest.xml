@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo_panenin_polos"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logo_panenin_polos"
         android:supportsRtl="true"
         android:theme="@style/Theme.PanenIn">
         <activity android:name="com.panenin.bangkit.b21.cap0065.MainActivity">
