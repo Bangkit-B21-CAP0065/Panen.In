@@ -32,6 +32,9 @@
     <string name="number_prediction_text">00.000</string>
     <string name="unit_prediction">Ton per Hektar</string>
     <string name="choose_year_tag">Pilih Tahun</string>
+    <string name="year_tag">Tahun</string>
+    <string name="region_tag">Kawasan</string>
+    <string name="commodity_tag">Komoditi</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
