@@ -36,6 +36,9 @@
     <string name="region_tag">Kawasan</string>
     <string name="commodity_tag">Komoditi</string>
     <string name="visualize_now">Visualisasi</string>
+    <string name="title_visualization_page">Visualisasi Harga Pasar</string>
+    <string name="title_reccomendation_page">Rekomendasi</string>
+    <string name="title_weather_prediction_page">Prediksi Cuaca</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>

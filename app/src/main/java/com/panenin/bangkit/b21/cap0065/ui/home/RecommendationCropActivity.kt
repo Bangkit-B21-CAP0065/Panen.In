@@ -1,6 +1,7 @@
 package com.panenin.bangkit.b21.cap0065.ui.home
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -59,6 +60,9 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
             Toast.makeText(this,
                 "region: $chosenRegion, tipe: $chosenPlantType, durasi: $chosenDuration", Toast.LENGTH_SHORT).show()
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.title_reccomendation_page)
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("not implemented")
@@ -78,6 +82,17 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
                 chosenDuration = parent.selectedItem.toString()
             }
         }
+    }
+
+    // function to the button on press
+    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(menuItem)
     }
 
 }

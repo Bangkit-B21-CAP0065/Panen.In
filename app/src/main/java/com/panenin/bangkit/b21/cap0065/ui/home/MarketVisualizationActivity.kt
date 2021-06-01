@@ -2,6 +2,7 @@ package com.panenin.bangkit.b21.cap0065.ui.home
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -59,6 +60,8 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 "Tahun: $chosenYear, region: $chosenRegion, tipe: $chosenCommodity", Toast.LENGTH_SHORT).show()
         }
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.title_visualization_page)
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -80,5 +83,16 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
 
     override fun onNothingSelected(p0: AdapterView<*>?) {
         TODO("Not yet implemented")
+    }
+
+    // function to the button on press
+    override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
+        when (menuItem.itemId) {
+            android.R.id.home -> {
+                finish()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(menuItem)
     }
 }
