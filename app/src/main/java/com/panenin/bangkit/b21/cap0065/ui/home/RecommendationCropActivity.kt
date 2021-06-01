@@ -12,14 +12,11 @@ import com.panenin.bangkit.b21.cap0065.databinding.ActivityRecommendationCropBin
 
 class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
-    lateinit var textView: TextView
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityRecommendationCropBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        textView = binding.textView
         val adapter = ArrayAdapter.createFromResource(
             this,
             R.array.city_list,
@@ -34,8 +31,7 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         val text: String = parent?.getItemAtPosition(position).toString()
-        textView.text = text
-        Toast.makeText(this, "Spinner 1 choosed $text", Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Region choosed: $text", Toast.LENGTH_LONG).show()
     }
 
 }
