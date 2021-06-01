@@ -113,7 +113,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginEnd="28dp"
         android:backgroundTint="@color/orange_200"
-        android:text="@string/predict_now"
+        android:text="@string/visualize_now"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cv_year_dropdown" />
