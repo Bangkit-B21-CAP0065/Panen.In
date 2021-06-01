@@ -31,6 +31,7 @@
     <string name="predict_now">Prediksi Sekarang</string>
     <string name="number_prediction_text">00.000</string>
     <string name="unit_prediction">Ton per Hektar</string>
+    <string name="choose_year_tag">Pilih Tahun</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
@@ -46,6 +47,11 @@
         <item>1 x 4 bulan</item>
         <item>2 x 4 bulan</item>
         <item>3 x 4 bulan</item>
+    </string-array>
+
+    <string-array name="year_list">
+        <item>2020</item>
+        <item>2021</item>
     </string-array>
 
 </resources>
