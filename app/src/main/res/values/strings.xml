@@ -58,4 +58,11 @@
         <item>2021</item>
     </string-array>
 
+    <string-array name="region_visualization_list">
+        <item>Bandung</item>
+        <item>Cianjur</item>
+        <item>Indramayu</item>
+        <item>Subang</item>
+    </string-array>
+
 </resources>

@@ -61,7 +61,7 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         }
     }
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        TODO("not implemented")
     }
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {

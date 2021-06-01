@@ -107,7 +107,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/predict_weather_button"
+        android:id="@+id/visualization_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
