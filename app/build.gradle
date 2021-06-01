@@ -8,7 +8,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.dicoding.bangkit.b21.cap0065"
+        applicationId "com.panenin.bangkit.b21.cap0065"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
