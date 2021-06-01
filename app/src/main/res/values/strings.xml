@@ -32,16 +32,20 @@
     <string name="number_prediction_text">00.000</string>
     <string name="unit_prediction">Ton per Hektar</string>
 
-    <string-array name="city_list">
-        <item>Bangkok</item>
-        <item>London</item>
-        <item>Paris</item>
-        <item>Singapore</item>
-        <item>New York</item>
-        <item>Istanbul</item>
-        <item>Dubai</item>
-        <item>Kuala Lumpur</item>
-        <item>Hong Kong</item>
-        <item>Barcelona</item>
+    <string-array name="region_list">
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
     </string-array>
+
+    <string-array name="plant_type_list">
+        <item>Padi</item>
+        <item>Jagung</item>
+    </string-array>
+
+    <string-array name="duration_list">
+        <item>1 x 4 bulan</item>
+        <item>2 x 4 bulan</item>
+        <item>3 x 4 bulan</item>
+    </string-array>
+
 </resources>
