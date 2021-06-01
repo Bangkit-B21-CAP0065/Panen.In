@@ -6,32 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.RecommendationCropActivity">
 
-    <!-- Dynamic -->
-
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_margin="10dp" />
+        android:layout_height="wrap_content" />
 
-    <!-- static -->
-
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner"
-        android:layout_margin="10dp"
-        android:entries="@array/city_list" />
-
-    <Button
-        android:id="@+id/button"
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
-        android:text="Get Values"
-        android:onClick="getValues"/>
+        android:layout_below="@id/spinner"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="25dp"
+        android:textColor="@android:color/holo_purple"
+        android:text="SPINNER 1"
+        android:textSize="16sp"
+        android:textStyle="italic|bold" />
 
 </RelativeLayout>
