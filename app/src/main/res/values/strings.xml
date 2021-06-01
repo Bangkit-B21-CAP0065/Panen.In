@@ -9,4 +9,20 @@
     <string name="weather_predict_button_tag">Prediksi Cuaca</string>
     <string name="reccomendation_crop_tag">Rekomendasi Tanaman</string>
     <string name="market_visualization_tag">Visualisasi Data Pasar</string>
+    <string name="dummy_location">Serapuh ABC</string>
+    <string name="min_temperature_tag">Min</string>
+    <string name="max_temperature_tag">Max</string>
+    <string name="min_temperature_text">25°C</string>
+    <string name="max_temperature_text">28°C</string>
+    <string name="average_tag">Rata-rata</string>
+    <string name="average_temperature_text">27°C</string>
+    <string name="condition_text">Mendung</string>
+    <string name="average_humidity_tag">Kelembaban Rata-Rata</string>
+    <string name="wind_velocity_tag">Kecepatan Angin</string>
+    <string name="wind_direction_tag">Arah Angin</string>
+    <string name="sun_intensity_tag">Intensitas Matahari</string>
+    <string name="average_humidity_text">55% RH</string>
+    <string name="wind_velocity_text">100 m/sec</string>
+    <string name="wind_direction_text">Barat Daya</string>
+    <string name="sun_intensity_text">10 jam</string>
 </resources>
