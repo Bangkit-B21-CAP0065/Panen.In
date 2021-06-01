@@ -25,4 +25,17 @@
     <string name="wind_velocity_text">100 m/sec</string>
     <string name="wind_direction_text">Barat Daya</string>
     <string name="sun_intensity_text">10 jam</string>
+
+    <string-array name="city_list">
+        <item>Bangkok</item>
+        <item>London</item>
+        <item>Paris</item>
+        <item>Singapore</item>
+        <item>New York</item>
+        <item>Istanbul</item>
+        <item>Dubai</item>
+        <item>Kuala Lumpur</item>
+        <item>Hong Kong</item>
+        <item>Barcelona</item>
+    </string-array>
 </resources>
