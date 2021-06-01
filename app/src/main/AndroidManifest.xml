@@ -9,10 +9,12 @@
         android:roundIcon="@drawable/logo_panenin_polos"
         android:supportsRtl="true"
         android:theme="@style/Theme.PanenIn">
-        <activity android:name="com.panenin.bangkit.b21.cap0065.MainActivity">
+        <activity android:name=".ui.home.MarketVisualizationActivity"/>
+        <activity android:name=".ui.home.RecommendationCropActivity" />
+        <activity android:name=".ui.home.WeatherPredictActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

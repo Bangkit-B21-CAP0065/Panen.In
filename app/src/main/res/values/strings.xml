@@ -3,6 +3,69 @@
     <string name="title_home">Beranda</string>
     <string name="title_shopping">Belanja</string>
     <string name="title_profile">Profil</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="panen_in">Panen.in</string>
+    <string name="text_jargon">benih terbaik, awal keberhasilan</string>
+    <string name="weather_predict_button_tag">Prediksi Cuaca</string>
+    <string name="reccomendation_crop_tag">Rekomendasi Tanaman</string>
+    <string name="market_visualization_tag">Visualisasi Data Pasar</string>
+    <string name="dummy_location">Serapuh ABC</string>
+    <string name="min_temperature_tag">Min</string>
+    <string name="max_temperature_tag">Max</string>
+    <string name="min_temperature_text">25°C</string>
+    <string name="max_temperature_text">28°C</string>
+    <string name="average_tag">Rata-rata</string>
+    <string name="average_temperature_text">27°C</string>
+    <string name="condition_text">Mendung</string>
+    <string name="average_humidity_tag">Kelembaban Rata-Rata</string>
+    <string name="wind_velocity_tag">Kecepatan Angin</string>
+    <string name="wind_direction_tag">Arah Angin</string>
+    <string name="sun_intensity_tag">Intensitas Matahari</string>
+    <string name="average_humidity_text">55% RH</string>
+    <string name="wind_velocity_text">100 m/sec</string>
+    <string name="wind_direction_text">Barat Daya</string>
+    <string name="sun_intensity_text">10 jam</string>
+    <string name="choose_region_tag">Pilih Kawasan</string>
+    <string name="choose_plant_type_tag">Pilih Tipe Tanaman</string>
+    <string name="choose_duration_tag">Pilih durasi (per 4 bulan)</string>
+    <string name="predict_now">Prediksi Sekarang</string>
+    <string name="number_prediction_text">00.000</string>
+    <string name="unit_prediction">Ton per Hektar</string>
+    <string name="choose_year_tag">Pilih Tahun</string>
+    <string name="year_tag">Tahun</string>
+    <string name="region_tag">Kawasan</string>
+    <string name="commodity_tag">Komoditi</string>
+    <string name="visualize_now">Visualisasi</string>
+    <string name="title_visualization_page">Visualisasi Harga Pasar</string>
+    <string name="title_reccomendation_page">Rekomendasi</string>
+    <string name="title_weather_prediction_page">Prediksi Cuaca</string>
+
+    <string-array name="region_list">
+        <item>Jawa Barat</item>
+        <item>Jawa Tengah</item>
+    </string-array>
+
+    <string-array name="plant_type_list">
+        <item>Padi</item>
+        <item>Jagung</item>
+    </string-array>
+
+    <string-array name="duration_list">
+        <item>1 x 4 bulan</item>
+        <item>2 x 4 bulan</item>
+        <item>3 x 4 bulan</item>
+    </string-array>
+
+    <string-array name="year_list">
+        <item>2020</item>
+        <item>2021</item>
+    </string-array>
+
+    <string-array name="region_visualization_list">
+        <item>Bandung</item>
+        <item>Cianjur</item>
+        <item>Indramayu</item>
+        <item>Subang</item>
+    </string-array>
+
 </resources>
