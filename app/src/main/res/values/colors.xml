@@ -14,4 +14,5 @@
     <color name="grey_200">#9E9B94</color>
     <color name="grey_500">#7D7C79</color>
     <color name="grey_700">#504E49</color>
+    <color name="colorAccent">#63CEFF</color>
 </resources>

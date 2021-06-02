@@ -39,6 +39,7 @@
     <string name="title_visualization_page">Visualisasi Harga Pasar</string>
     <string name="title_reccomendation_page">Rekomendasi</string>
     <string name="title_weather_prediction_page">Prediksi Cuaca</string>
+    <string name="image_preview">image preview</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
