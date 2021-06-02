@@ -48,10 +48,12 @@ dependencies {
     //UI
     implementation "com.google.android.material:material:$material_version"
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayout_version"
-    implementation "androidx.navigation:navigation-fragment:$navigation_version"
-    implementation "androidx.navigation:navigation-ui:$navigation_version"
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation_version"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'com.airbnb.android:lottie:2.2.5'
 
     //Testing
     testImplementation "junit:junit:$junit_version"
