@@ -39,6 +39,8 @@
     <string name="title_visualization_page">Visualisasi Harga Pasar</string>
     <string name="title_reccomendation_page">Rekomendasi</string>
     <string name="title_weather_prediction_page">Prediksi Cuaca</string>
+    <string name="login_daftar_tag">LOGIN / DAFTAR</string>
+    <string name="halo_user">Halo Panen.ers</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
