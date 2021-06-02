@@ -6,6 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.weather.WeatherPredictActivity">
 
+    <EditText
+        android:id="@+id/inputText"
+        android:layout_width="320sp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="0.8"
+        android:autofillHints=""
+        android:hint="@string/input_city"
+        android:inputType="text"
+        app:layout_constraintEnd_toStartOf="@+id/btnInputCity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnInputCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:text="@string/search"
+        android:backgroundTint="@color/orange_200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.cardview.widget.CardView
         android:id="@+id/button_change_location"
         android:layout_width="wrap_content"
@@ -18,7 +41,7 @@
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/inputText">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -42,7 +65,7 @@
                 android:ellipsize="end"
                 android:gravity="center_horizontal"
                 android:maxLines="2"
-                android:text="@string/dummy_location"
+                android:text="@string/input_city"
                 android:textColor="@color/orange_200"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -297,6 +320,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
