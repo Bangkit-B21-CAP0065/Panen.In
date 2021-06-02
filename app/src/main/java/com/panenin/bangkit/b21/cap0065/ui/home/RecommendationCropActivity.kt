@@ -52,8 +52,8 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         binding.durationDropdown.adapter = adapterDurationChoosed
         binding.durationDropdown.onItemSelectedListener = this
 
-        chosenRegion = resources.getStringArray(R.array.region_list).first()
-        chosenPlantType = resources.getStringArray(R.array.plant_type_list).first()
+        chosenRegion = resources.getStringArray(R.array.region_list).first().toLowerCase()
+        chosenPlantType = resources.getStringArray(R.array.plant_type_list).first().toLowerCase()
         chosenDuration =  resources.getStringArray(R.array.duration_list).first()
 
         binding.predictWeatherButton.setOnClickListener{
@@ -71,11 +71,11 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         when (parent?.id) {
             R.id.region_dropdown -> {
                 Toast.makeText(this, "position $position, Region Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
-                chosenRegion = parent.selectedItem.toString()
+                chosenRegion = parent.selectedItem.toString().toLowerCase()
             }
             R.id.plant_type_dropdown -> {
                 Toast.makeText(this, "position $position, Plan type Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
-                chosenPlantType = parent.selectedItem.toString()
+                chosenPlantType = parent.selectedItem.toString().toLowerCase()
             }
             R.id.duration_dropdown -> {
                 Toast.makeText(this, "position $position, Duration Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
