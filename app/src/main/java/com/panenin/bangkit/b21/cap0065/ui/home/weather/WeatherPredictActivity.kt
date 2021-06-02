@@ -1,4 +1,4 @@
-package com.panenin.bangkit.b21.cap0065.ui.home
+package com.panenin.bangkit.b21.cap0065.ui.home.weather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

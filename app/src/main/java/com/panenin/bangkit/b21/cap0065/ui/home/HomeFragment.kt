@@ -7,8 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import com.panenin.bangkit.b21.cap0065.R
 import com.panenin.bangkit.b21.cap0065.databinding.FragmentHomeBinding
+import com.panenin.bangkit.b21.cap0065.ui.home.weather.WeatherPredictActivity
 
 class HomeFragment : Fragment(){
 
@@ -28,7 +28,7 @@ class HomeFragment : Fragment(){
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.buttonPredictWeather.setOnClickListener{
             Toast.makeText(requireContext(), "button predict clicked!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(activity,WeatherPredictActivity::class.java)
+            val intent = Intent(activity, WeatherPredictActivity::class.java)
             startActivity(intent)
         }
         binding.buttonRecommendCrop.setOnClickListener{
