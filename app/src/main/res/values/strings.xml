@@ -39,6 +39,7 @@
     <string name="title_visualization_page">Visualisasi Harga Pasar</string>
     <string name="title_reccomendation_page">Rekomendasi</string>
     <string name="title_weather_prediction_page">Prediksi Cuaca</string>
+    <string name="image_preview">image preview</string>
 
     <string name="next">Next</string>
     <string name="skip">Skip</string>
