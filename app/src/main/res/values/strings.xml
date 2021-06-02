@@ -41,6 +41,11 @@
     <string name="title_weather_prediction_page">Prediksi Cuaca</string>
     <string name="login_daftar_tag">LOGIN / DAFTAR</string>
     <string name="halo_user">Halo Panen.ers</string>
+    <string name="general_information_tag">Informasi Umum</string>
+    <string name="app_guide_tag">Panduan Aplikasi</string>
+    <string name="info_panenIn_tag">Informasi Panen.In</string>
+    <string name="privacy_policy_tag">Kebijakan Privasi</string>
+    <string name="logout_tag">Logout</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
