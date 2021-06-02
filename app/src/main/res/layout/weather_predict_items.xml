@@ -9,8 +9,8 @@
         android:id="@+id/min_temperature_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
@@ -24,14 +24,14 @@
         android:id="@+id/min_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
         android:text="@string/min_temperature_text"
         android:textColor="@color/grey_200"
-        android:textSize="40sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/min_temperature_tag"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,14 +39,16 @@
         android:id="@+id/max_temperature_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
         android:text="@string/max_temperature_tag"
         android:textColor="@color/grey_500"
         android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/average_humidity"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/min_temperature_tag" />
 
@@ -54,14 +56,17 @@
         android:id="@+id/max_temperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="30dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
         android:text="@string/max_temperature_text"
         android:textColor="@color/grey_200"
-        android:textSize="40sp"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/average_humidity"
+        app:layout_constraintEnd_toEndOf="@+id/min_temperature"
         app:layout_constraintStart_toEndOf="@+id/max_temperature_tag"
         app:layout_constraintTop_toBottomOf="@+id/min_temperature" />
 
@@ -69,7 +74,7 @@
         android:id="@+id/average_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
@@ -87,12 +92,12 @@
         android:ellipsize="end"
         android:gravity="center_horizontal"
         android:maxLines="1"
+        android:text="@string/average_temperature_text"
         android:textColor="@color/brown_700"
-        android:textSize="70sp"
+        android:textSize="50sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/min_temperature"
-        app:layout_constraintTop_toBottomOf="@+id/average_tag"
-        android:text="@string/average_temperature_text" />
+        app:layout_constraintTop_toBottomOf="@+id/average_tag" />
 
     <TextView
         android:id="@+id/condition_text"
@@ -105,7 +110,7 @@
         android:textColor="@color/grey_200"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/max_temperature"
+        app:layout_constraintStart_toEndOf="@+id/min_temperature"
         app:layout_constraintTop_toBottomOf="@+id/average_temperature" />
 
     <TextView
@@ -233,14 +238,5 @@
         app:layout_constraintStart_toEndOf="@+id/wind_direction_text"
         app:layout_constraintTop_toBottomOf="@+id/sun_intensity_tag"
         android:text="@string/sun_intensity_text" />
-
-    <ProgressBar
-        android:id="@+id/progressbar_prediction"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
