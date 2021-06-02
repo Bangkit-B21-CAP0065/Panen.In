@@ -49,6 +49,7 @@
     <string name="input_city">Masukkan kota</string>
     <string name="search">Cari</string>
     <string name="explain_duration_tag">x 4 Bulan</string>
+    <string name="related_to_tag">Harga</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
