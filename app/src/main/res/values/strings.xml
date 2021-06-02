@@ -61,9 +61,9 @@
     </string-array>
 
     <string-array name="duration_list">
-        <item>1 x 4 bulan</item>
-        <item>2 x 4 bulan</item>
-        <item>3 x 4 bulan</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="year_list">
