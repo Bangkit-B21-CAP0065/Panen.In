@@ -22,7 +22,7 @@ class WeatherPredictActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityWeatherPredictBinding.inflate(layoutInflater)
+        binding = ActivityWeatherPredictBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         adapter = WeatherAdapter()
@@ -31,10 +31,11 @@ class WeatherPredictActivity : AppCompatActivity() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
 
+        binding.progressbarPrediction.visibility = View.GONE
         binding.btnInputCity.setOnClickListener {
             val city = binding.inputText.text.toString()
             if (city.isEmpty()) return@setOnClickListener
-//            showLoading(true)
+            binding.progressbarPrediction.visibility = View.VISIBLE
             setWeather(city)
             binding.textLocation.text = city
         }
@@ -56,7 +57,7 @@ class WeatherPredictActivity : AppCompatActivity() {
                     //parsing json
                     val result = String(responseBody)
                     val responseObject = JSONObject(result)
-                    Log.d("WEATHER ACTIVITY", "$responseObject")
+
                     val listWeather = responseObject.getJSONArray("weather")
                     val weather = listWeather.getJSONObject(0)
                     val weatherItems = WeatherItems()
@@ -84,11 +85,10 @@ class WeatherPredictActivity : AppCompatActivity() {
 
                     //set data ke adapter
                     adapter.setData(listItems)
-//                    showLoading(false)
+                    binding.progressbarPrediction.visibility = View.GONE
                 } catch (e: Exception) {
                     Log.d("Exception", e.message.toString())
                 }
-
             }
 
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
