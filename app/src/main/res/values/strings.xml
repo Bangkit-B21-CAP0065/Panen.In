@@ -80,4 +80,10 @@
         <item>Tasikmalaya</item>
     </string-array>
 
+    <string-array name="prices_list">
+        <item>Rata-rata</item>
+        <item>Tertinggi</item>
+        <item>Terendah</item>
+    </string-array>
+
 </resources>
