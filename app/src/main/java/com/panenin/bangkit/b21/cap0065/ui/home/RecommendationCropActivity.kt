@@ -82,7 +82,6 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
 
     private fun getCropPrediction(city: String, commodity: String, duration: String) {
         var tempDurationNumber = duration.toInt()
-        val listItems = ArrayList<Float>()
 
         val url = "http://34.101.212.102/api/panen?kota=$city&crop=$commodity&bulan=$duration"
 
