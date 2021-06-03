@@ -1,10 +1,13 @@
 package com.panenin.bangkit.b21.cap0065.ui.home.weather
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
@@ -38,10 +41,19 @@ class WeatherPredictActivity : AppCompatActivity() {
             binding.progressbarPrediction.visibility = View.VISIBLE
             setWeather(city)
             binding.textLocation.text = city
+            closeKeyBoard()
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.title_weather_prediction_page)
+    }
+
+    private fun closeKeyBoard() {
+        val view = this.currentFocus
+        if (view != null) {
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
     }
 
     private fun setWeather(city: String) {
@@ -93,13 +105,15 @@ class WeatherPredictActivity : AppCompatActivity() {
 
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
                 Log.d("onFailure", error.message.toString())
+                binding.progressbarPrediction.visibility = View.GONE
+                Toast.makeText(this@WeatherPredictActivity, "Mohon maaf, kota tidak ditemukan.", Toast.LENGTH_SHORT).show()
             }
         })
     }
 
     class TimeInHours(val hours: Int, val minutes: Int, val seconds: Int) {
         override fun toString(): String {
-            return String.format("%d,%02d,%02d Jam", hours, minutes, seconds)
+            return String.format("%dh %02dm %02ds", hours, minutes, seconds)
         }
     }
 
