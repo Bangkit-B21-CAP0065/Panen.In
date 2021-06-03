@@ -112,11 +112,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/related_to_dropdown"
+                app:layout_constraintEnd_toStartOf="@+id/prices_dropdown"
                 app:layout_constraintTop_toBottomOf="@+id/choose_commodity_tag" />
 
             <Spinner
-                android:id="@+id/related_to_dropdown"
+                android:id="@+id/prices_dropdown"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
