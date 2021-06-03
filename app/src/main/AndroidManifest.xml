@@ -15,16 +15,22 @@
         <activity android:name=".WelcomeActivity"></activity>
         <activity android:name=".SplashActivity"
             android:theme="@style/Theme.PanenIn.NoActionBar">
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity android:name=".ui.home.MarketVisualizationActivity" />
+        <activity android:name=".ui.home.RecommendationCropActivity" />
+        <activity android:name=".ui.home.WeatherPredictActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.home.MarketVisualizationActivity" />
-        <activity android:name=".ui.home.RecommendationCropActivity" />
-        <activity android:name=".ui.home.WeatherPredictActivity" />
-        <activity android:name=".MainActivity"/>
     </application>
 
 </manifest>

@@ -12,7 +12,7 @@ buildscript {
         constraintLayout_version = '2.0.4'
         navigation_version = '2.3.5'
         mPAndroidChart_version = 'v2.2.4'
-        circleImgView_version =  '2.2.0'
+        circleImgView_version =  '3.1.0'
         slider_version =  '1.1.5@aar'
 
         //testing

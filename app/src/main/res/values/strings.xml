@@ -57,6 +57,9 @@
     <string name="info_panenIn_tag">Informasi Panen.In</string>
     <string name="privacy_policy_tag">Kebijakan Privasi</string>
     <string name="logout_tag">Logout</string>
+    <string name="plus">+</string>
+    <string name="default_item_count">0</string>
+    <string name="minus">-</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
