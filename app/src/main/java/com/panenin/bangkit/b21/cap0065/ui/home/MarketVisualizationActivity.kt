@@ -15,6 +15,7 @@ import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
 import com.github.mikephil.charting.utils.ColorTemplate
 import com.panenin.bangkit.b21.cap0065.R
 import com.panenin.bangkit.b21.cap0065.databinding.ActivityMarketVisualizationBinding
+import com.panenin.bangkit.b21.cap0065.databinding.ActivityRecommendationCropBinding
 
 
 class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
@@ -22,14 +23,16 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
     private lateinit var chosenYear : String
     private lateinit var chosenRegion : String
     private lateinit var chosenCommodity : String
+    private lateinit var chosenPricesPosition : String
     private lateinit var mChart: LineChart
     var lineData: LineData? = null
     var lineDataSet: LineDataSet? = null
     var lineEntries = ArrayList<Entry>()
+    private lateinit var binding: ActivityMarketVisualizationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val binding = ActivityMarketVisualizationBinding.inflate(layoutInflater)
+        binding = ActivityMarketVisualizationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -56,6 +59,13 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         )
         adapterPlantTypeChoosed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
+        val adapterPricesChoosed = ArrayAdapter.createFromResource(
+                this,
+                R.array.prices_list,
+                android.R.layout.simple_spinner_item
+        )
+        adapterPricesChoosed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+
         binding.yearDropdown.adapter = adapterYearChoosed
         binding.yearDropdown.onItemSelectedListener = this
 
@@ -64,6 +74,9 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
 
         binding.commodityDropdown.adapter = adapterPlantTypeChoosed
         binding.commodityDropdown.onItemSelectedListener = this
+
+        binding.pricesDropdown.adapter = adapterPricesChoosed
+        binding.pricesDropdown.onItemSelectedListener = this
 
         chosenYear =  resources.getStringArray(R.array.year_list).first()
         chosenRegion = resources.getStringArray(R.array.region_visualization_list).first()
@@ -75,9 +88,11 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 "Tahun: $chosenYear, region: $chosenRegion, tipe: $chosenCommodity",
                 Toast.LENGTH_SHORT
             ).show()
+            setLineBar()
         }
+    }
 
-        mChart = binding.chart
+    private fun setLineBar() {
         mChart = binding.chart
 //        with(mChart) {
 //            // (1)
@@ -92,7 +107,13 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
 //            setScaleEnabled(false)
 //            setPinchZoom(true)
 //        }
-        getEntries()
+        lineEntries.add(Entry(2f, 0))
+        lineEntries.add(Entry(4f, 1))
+        lineEntries.add(Entry(6f, 1))
+        lineEntries.add(Entry(8f, 3))
+        lineEntries.add(Entry(7f, 4))
+        lineEntries.add(Entry(3f, 3))
+
         val labels = ArrayList<String>()
         labels.add("18-Jan")
         labels.add("19-Jan")
@@ -108,16 +129,6 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         lineDataSet!!.color = ResourcesCompat.getColor(getResources(), R.color.yellow_500, null);
 
         mChart.animateY(5000)
-
-    }
-
-    private fun getEntries() {
-        lineEntries.add(Entry(2f, 0))
-        lineEntries.add(Entry(4f, 1))
-        lineEntries.add(Entry(6f, 1))
-        lineEntries.add(Entry(8f, 3))
-        lineEntries.add(Entry(7f, 4))
-        lineEntries.add(Entry(3f, 3))
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
@@ -145,6 +156,14 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                     Toast.LENGTH_SHORT
                 ).show()
                 chosenCommodity = parent.selectedItem.toString()
+            }
+            R.id.prices_dropdown -> {
+                Toast.makeText(
+                        this,
+                        "position $position, Prices type Selected: " + parent.selectedItem.toString(),
+                        Toast.LENGTH_SHORT
+                ).show()
+                chosenPricesPosition = position.toString()
             }
         }
     }
