@@ -1,6 +1,7 @@
 package com.panenin.bangkit.b21.cap0065.ui.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
@@ -8,11 +9,17 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.github.mikephil.charting.components.Legend
+import com.github.mikephil.charting.components.Legend.LegendForm
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
+import com.loopj.android.http.AsyncHttpClient
+import com.loopj.android.http.AsyncHttpResponseHandler
 import com.panenin.bangkit.b21.cap0065.R
 import com.panenin.bangkit.b21.cap0065.databinding.ActivityRecommendationCropBinding
+import cz.msebera.android.httpclient.Header
+import org.json.JSONArray
 
 
 class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
@@ -28,23 +35,23 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         setContentView(binding.root)
 
         val adapterRegionChoosed = ArrayAdapter.createFromResource(
-            this,
-            R.array.region_list,
-            android.R.layout.simple_spinner_item
+                this,
+                R.array.region_list,
+                android.R.layout.simple_spinner_item
         )
         adapterRegionChoosed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         val adapterPlantTypeChoosed = ArrayAdapter.createFromResource(
-            this,
-            R.array.plant_type_list,
-            android.R.layout.simple_spinner_item
+                this,
+                R.array.plant_type_list,
+                android.R.layout.simple_spinner_item
         )
         adapterPlantTypeChoosed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
         val adapterDurationChoosed = ArrayAdapter.createFromResource(
-            this,
-            R.array.duration_list,
-            android.R.layout.simple_spinner_item
+                this,
+                R.array.duration_list,
+                android.R.layout.simple_spinner_item
         )
         adapterDurationChoosed.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
 
@@ -62,43 +69,63 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         chosenDuration =  resources.getStringArray(R.array.duration_list).first()
 
         binding.predictWeatherButton.setOnClickListener{
-            var tempDurationNumber = chosenDuration.toInt()
-            setBarChart(tempDurationNumber)
             Toast.makeText(this,
-                "region: $chosenRegion, tipe: $chosenPlantType, durasi: $chosenDuration", Toast.LENGTH_SHORT).show()
+                    "region: $chosenRegion, tipe: $chosenPlantType, durasi: $chosenDuration", Toast.LENGTH_SHORT).show()
+            getCropPrediction(chosenRegion, chosenPlantType, chosenDuration)
         }
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.title_reccomendation_page)
     }
 
-    private fun setBarChart(numberOfBar : Int) {
-        val entries = ArrayList<BarEntry>()
-//        entries.add(BarEntry(8f, 0))
-//        entries.add(BarEntry(2f, 1))
-//        entries.add(BarEntry(5f, 2))
-//        entries.add(BarEntry(20f, 3))
-//        entries.add(BarEntry(15f, 4))
-//        entries.add(BarEntry(19f, 5))
+    private fun getCropPrediction(city: String, commodity: String, duration: String) {
+        var tempDurationNumber = duration.toInt()
+        val listItems = ArrayList<Float>()
 
-        val barDataSet = BarDataSet(entries, "Cells")
+        val url = "http://34.101.212.102/api/panen?kota=$city&crop=$commodity&bulan=$duration"
+
+        val client = AsyncHttpClient()
+        client.get(url, object : AsyncHttpResponseHandler() {
+            override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
+                try {
+                    //parsing json
+                    val result = String(responseBody)
+                    val resultArray = JSONArray(result)
+                    Log.d("REKOM ACTIVITY", "$resultArray")
+                    setBarChart(tempDurationNumber, resultArray)
+                } catch (e: Exception) {
+                    Log.d("Exception", e.message.toString())
+                }
+            }
+
+            override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
+                Log.d("onFailure", error.message.toString())
+            }
+        })
+    }
+
+    private fun setBarChart(numberOfBar: Int, dataPrediction: JSONArray) {
+        var countPredictionNumber = dataPrediction.length()
+
+        val entries = ArrayList<BarEntry>()
+        for(i in 0 until countPredictionNumber){
+            val dataPrediction = dataPrediction[i]
+            var dataFloatPrediction = if (dataPrediction is Double) dataPrediction.toFloat()
+                                  else dataPrediction as Float
+            entries.add(BarEntry(dataFloatPrediction, i))
+        }
+
+        val barDataSet = BarDataSet(entries, "prediction in tons")
 
         val labels = ArrayList<String>()
-        for (i in 1..numberOfBar) {
-            entries.add(BarEntry(8f, i-1))
+        for (i in 1..countPredictionNumber) {
             labels.add("Round $i")
         }
-//        labels.add("18-Jan")
-//        labels.add("19-Jan")
-//        labels.add("20-Jan")
-//        labels.add("21-Jan")
-//        labels.add("22-Jan")
-//        labels.add("23-Jan")
+
         val data = BarData(labels, barDataSet)
         binding.barChart.data = data // set the data and list of lables into chart
-
-        barDataSet.color = ResourcesCompat.getColor(getResources(), R.color.yellow_500, null);
-
+        barDataSet.color = ResourcesCompat.getColor(getResources(), R.color.yellow_500, null)
+        binding.barChart.setDescription("")
         binding.barChart.animateY(5000)
     }
 
