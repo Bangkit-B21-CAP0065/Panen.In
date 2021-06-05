@@ -15,6 +15,10 @@ buildscript {
         circleImgView_version =  '2.2.0'
         slider_version =  '1.1.5@aar'
 
+        //GET API
+        lifecycleExt_version = '2.2.0'
+        loopj_version = '1.4.9'
+
         //testing
         junit_version = '4.13.2'
         junitExt_version = '1.1.2'
@@ -37,6 +41,7 @@ allprojects {
     repositories {
         google()
         mavenCentral()
+        maven { url 'https://jitpack.io' }
     }
 }
 
