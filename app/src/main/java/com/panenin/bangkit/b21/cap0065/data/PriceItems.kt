@@ -1,13 +1,13 @@
 package com.panenin.bangkit.b21.cap0065.data
 
-class WeatherItems {
-    var id: Int = 0
-    var description: String? = "Cerah"
-    var temperature: String? = "0°C"
-    var temperatureMin: String? = "0°C"
-    var temperatureMax: String? = "0°C"
-    var humidity: String? = "0% RH"
-    var windSpeed: String? = "0 m/sec"
-    var windDegree: String? = "0°"
-    var sunIntensity: String? = "0 Jam"
-}
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class PriceItems (
+    var year: String? = "0000",
+    var month: Int? = 0,
+    var averagePrice: String? = "0",
+    var minPrice: String? = "0",
+    var maxPrice: String? = "0"
+): Parcelable
