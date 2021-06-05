@@ -28,6 +28,7 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
     private lateinit var chosenRegion : String
     private lateinit var chosenCommodity : String
     private lateinit var chosenPricesPosition : String
+    private lateinit var chosenPrices : String
     private lateinit var mChart: LineChart
     var lineData: LineData? = null
     var lineDataSet: LineDataSet? = null
@@ -104,10 +105,10 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
                 try {
+                    Toast.makeText(this@MarketVisualizationActivity, "Visualisasi harga $chosenPrices, untuk komoditas $chosenCommodity di kota $chosenRegion, tahun $chosenYear berhasil dimuat", Toast.LENGTH_LONG).show()
                     //parsing json
                     val result = String(responseBody)
                     val resultArray = JSONArray(result)
-                    Log.d("visualization ACTIVITY", "$resultArray")
                     for (i in 0 until resultArray.length()) {
                         val dataObject = resultArray.getJSONObject(i)
                         val priceItem = PriceItems()
@@ -119,7 +120,6 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                         listPrice.add(priceItem)
                     }
                     listPrice.sortBy { price -> price.month }
-                    listPrice.forEach { println(it) }
                     setLineBar(priceStatus, listPrice)
                 } catch (e: Exception) {
                     Log.d("Exception", e.message.toString())
@@ -138,44 +138,46 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
     }
 
     private fun setLineBar(priceStatus: String, listPrice: ArrayList<PriceItems>) {
-//    private fun setLineBar(priceStatus: String) {
+        var countLineNumber = listPrice.size
+        Log.d("MARKET", "countLineNumber $countLineNumber")
+
         with(mChart) {
             setTouchEnabled(true)
             isDragEnabled = true
             setScaleEnabled(false)
             setPinchZoom(true)
+            setDescription("")
         }
-        when(priceStatus){
-            "0" -> {
-                Log.d("MARKET", "price status 0 = harga rerata")
-            }
-            "1" -> {
-                Log.d("MARKET", "price status 1 = harga tertinggi")
-            }
-            "2" -> {
-                Log.d("MARKET", "price status 2 = harga terendah")
-            }
-        }
-        var lineEntries = ArrayList<Entry>()
-        lineEntries.add(Entry(2f, 0))
-        lineEntries.add(Entry(4f, 1))
-        lineEntries.add(Entry(6f, 1))
-        lineEntries.add(Entry(8f, 3))
-        lineEntries.add(Entry(7f, 4))
-        lineEntries.add(Entry(3f, 3))
 
         val labels = ArrayList<String>()
-        labels.add("18-Jan")
-        labels.add("19-Jan")
-        labels.add("20-Jan")
-        labels.add("21-Jan")
-        labels.add("22-Jan")
-        labels.add("23-Jan")
+        for (i in 1..countLineNumber) {
+            labels.add("bulan $i")
+        }
+
+        var lineEntries = ArrayList<Entry>()
+        for(i in 0 until countLineNumber){
+            var dataFloatPrice = 0f
+            when(priceStatus){
+                "0" -> {
+                    Log.d("MARKET", "price status 0 = harga rerata")
+                    dataFloatPrice = listPrice[i].averagePrice.toFloat()
+                }
+                "1" -> {
+                    Log.d("MARKET", "price status 1 = harga tertinggi")
+                    dataFloatPrice = listPrice[i].maxPrice.toFloat()
+                }
+                "2" -> {
+                    Log.d("MARKET", "price status 2 = harga terendah")
+                    dataFloatPrice = listPrice[i].minPrice.toFloat()
+                }
+            }
+
+            lineEntries.add(Entry(dataFloatPrice, i))
+        }
 
         lineDataSet = LineDataSet(lineEntries, "Harga dalam Rupiah")
         lineData = LineData(labels, lineDataSet)
         mChart.data = lineData // set the data and list of lables into chart
-        mChart.setDescription("")
         lineDataSet?.color = ResourcesCompat.getColor(getResources(), R.color.yellow_500, null);
         mChart.animateY(5000)
         mChart.invalidate()
@@ -183,37 +185,12 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {
-            R.id.year_dropdown -> {
-                Toast.makeText(
-                        this,
-                        "position $position, Year Selected: " + parent.selectedItem.toString(),
-                        Toast.LENGTH_SHORT
-                ).show()
-                chosenYear = parent.selectedItem.toString()
-            }
-            R.id.region_dropdown -> {
-                Toast.makeText(
-                        this,
-                        "position $position, Region Selected: " + parent.selectedItem.toString(),
-                        Toast.LENGTH_SHORT
-                ).show()
-                chosenRegion = parent.selectedItem.toString()
-            }
-            R.id.commodity_dropdown -> {
-                Toast.makeText(
-                        this,
-                        "position $position, Commodity type Selected: " + parent.selectedItem.toString(),
-                        Toast.LENGTH_SHORT
-                ).show()
-                chosenCommodity = parent.selectedItem.toString()
-            }
+            R.id.year_dropdown -> chosenYear = parent.selectedItem.toString()
+            R.id.region_dropdown -> chosenRegion = parent.selectedItem.toString()
+            R.id.commodity_dropdown -> chosenCommodity = parent.selectedItem.toString()
             R.id.prices_dropdown -> {
-                Toast.makeText(
-                        this,
-                        "position $position, Prices type Selected: " + parent.selectedItem.toString(),
-                        Toast.LENGTH_SHORT
-                ).show()
                 chosenPricesPosition = position.toString()
+                chosenPrices = parent.selectedItem.toString()
             }
         }
     }
