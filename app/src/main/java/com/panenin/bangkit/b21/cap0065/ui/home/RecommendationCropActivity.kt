@@ -1,6 +1,7 @@
 package com.panenin.bangkit.b21.cap0065.ui.home
 
 import android.content.Context
+import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
@@ -11,6 +12,9 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.charts.Chart
+import com.github.mikephil.charting.charts.LineChart
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.Legend.LegendForm
 import com.github.mikephil.charting.data.BarData
@@ -30,11 +34,18 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
     private lateinit var chosenPlantType : String
     private lateinit var chosenDuration : String
     private lateinit var binding: ActivityRecommendationCropBinding
+    private lateinit var barChart: BarChart
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecommendationCropBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        barChart = binding.barChart
+        barChart.setNoDataText("Hitung prediksi sekarang !")
+        val p: Paint = barChart.getPaint(Chart.PAINT_INFO)
+        p.textSize = 60f
+        barChart.invalidate()
 
         val adapterRegionChoosed = ArrayAdapter.createFromResource(
                 this,
@@ -100,6 +111,11 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
             }
 
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
+                barChart.setNoDataText("Mohon maaf, data tidak dapat diprediksi")
+                val p: Paint = barChart.getPaint(Chart.PAINT_INFO)
+                p.textSize = 60f
+                barChart.invalidate()
+                Toast.makeText(this@RecommendationCropActivity, "Mohon maaf, data tidak dapat diprediksi", Toast.LENGTH_SHORT).show()
                 Log.d("onFailure", error.message.toString())
             }
         })
@@ -116,7 +132,7 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
             entries.add(BarEntry(dataFloatPrediction, i))
         }
 
-        val barDataSet = BarDataSet(entries, "prediction in tons")
+        val barDataSet = BarDataSet(entries, "Prediksi dalam satuan ton")
 
         val labels = ArrayList<String>()
         for (i in 1..countPredictionNumber) {
@@ -124,10 +140,10 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         }
 
         val data = BarData(labels, barDataSet)
-        binding.barChart.data = data // set the data and list of lables into chart
+        barChart.data = data // set the data and list of lables into chart
         barDataSet.color = ResourcesCompat.getColor(getResources(), R.color.yellow_500, null)
-        binding.barChart.setDescription("")
-        binding.barChart.animateY(5000)
+        barChart.setDescription("")
+        barChart.animateY(5000)
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
