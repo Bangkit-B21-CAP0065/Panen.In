@@ -81,9 +81,7 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         chosenPlantType = resources.getStringArray(R.array.plant_type_list).first().toLowerCase()
         chosenDuration =  resources.getStringArray(R.array.duration_list).first()
 
-        binding.predictWeatherButton.setOnClickListener{
-            Toast.makeText(this,
-                    "region: $chosenRegion, tipe: $chosenPlantType, durasi: $chosenDuration", Toast.LENGTH_SHORT).show()
+        binding.predictCropButton.setOnClickListener{
             getCropPrediction(chosenRegion, chosenPlantType, chosenDuration)
         }
 
@@ -100,10 +98,11 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
                 try {
+                    Toast.makeText(this@RecommendationCropActivity,
+                            "Rekomendasi bibit $chosenPlantType untuk wilayah $chosenRegion, durasi: $chosenDuration x 4 bulan berhasil dimuat !", Toast.LENGTH_LONG).show()
                     //parsing json
                     val result = String(responseBody)
                     val resultArray = JSONArray(result)
-                    Log.d("REKOM ACTIVITY", "$resultArray")
                     setBarChart(tempDurationNumber, resultArray)
                 } catch (e: Exception) {
                     Log.d("Exception", e.message.toString())

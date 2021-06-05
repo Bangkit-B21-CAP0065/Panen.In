@@ -171,7 +171,7 @@
     </androidx.cardview.widget.CardView>
 
     <Button
-        android:id="@+id/predict_weather_button"
+        android:id="@+id/predict_crop_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -192,37 +192,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/predict_weather_button" />
-<!--    <TextView-->
-<!--        android:id="@+id/number_prediction_text"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="32dp"-->
-<!--        android:ellipsize="end"-->
-<!--        android:gravity="center_horizontal"-->
-<!--        android:maxLines="1"-->
-<!--        android:text="@string/number_prediction_text"-->
-<!--        android:textColor="@color/brown_700"-->
-<!--        android:textSize="60sp"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/predict_weather_button" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/unit_prediction"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_marginTop="16dp"-->
-<!--        android:gravity="start"-->
-<!--        android:text="@string/unit_prediction"-->
-<!--        android:textColor="@color/grey_500"-->
-<!--        android:textSize="28sp"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.506"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/number_prediction_text"-->
-<!--        app:layout_constraintVertical_bias="0.032" />-->
+        app:layout_constraintTop_toBottomOf="@+id/predict_crop_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
