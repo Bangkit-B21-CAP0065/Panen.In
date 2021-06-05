@@ -57,8 +57,8 @@
     </string-array>
 
     <string-array name="plant_type_list">
-        <item>Padi</item>
         <item>Jagung</item>
+        <item>Padi</item>
     </string-array>
 
     <string-array name="duration_list">
@@ -68,16 +68,17 @@
     </string-array>
 
     <string-array name="year_list">
+        <item>2019</item>
         <item>2020</item>
         <item>2021</item>
     </string-array>
 
     <string-array name="region_visualization_list">
+        <item>Tasikmalaya</item>
         <item>Bandung</item>
         <item>Cianjur</item>
         <item>Indramayu</item>
         <item>Subang</item>
-        <item>Tasikmalaya</item>
     </string-array>
 
     <string-array name="prices_list">
