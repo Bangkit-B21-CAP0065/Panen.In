@@ -2,6 +2,7 @@ package com.panenin.bangkit.b21.cap0065.data
 
 class WeatherItems {
     var id: Int = 0
+    var city: String = ""
     var description: String? = "Cerah"
     var temperature: String? = "0°C"
     var temperatureMin: String? = "0°C"
