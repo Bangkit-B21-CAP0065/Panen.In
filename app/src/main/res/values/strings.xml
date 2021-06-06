@@ -27,7 +27,7 @@
     <string name="sun_intensity_text">10 jam</string>
     <string name="choose_region_tag">Pilih Kawasan</string>
     <string name="choose_plant_type_tag">Pilih Tipe Tanaman</string>
-    <string name="choose_duration_tag">Pilih durasi (per 4 bulan)</string>
+    <string name="choose_duration_tag">Pilih durasi</string>
     <string name="predict_now">Prediksi Sekarang</string>
     <string name="number_prediction_text">00.000</string>
     <string name="unit_prediction">Ton per Hektar</string>
@@ -60,6 +60,10 @@
     <string name="plus">+</string>
     <string name="default_item_count">0</string>
     <string name="minus">-</string>
+    <string name="input_city">Masukkan kota</string>
+    <string name="search">Cari</string>
+    <string name="explain_duration_tag">x 4 Bulan</string>
+    <string name="related_to_tag">Harga</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
@@ -67,26 +71,34 @@
     </string-array>
 
     <string-array name="plant_type_list">
-        <item>Padi</item>
         <item>Jagung</item>
+        <item>Padi</item>
     </string-array>
 
     <string-array name="duration_list">
-        <item>1 x 4 bulan</item>
-        <item>2 x 4 bulan</item>
-        <item>3 x 4 bulan</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="year_list">
+        <item>2019</item>
         <item>2020</item>
         <item>2021</item>
     </string-array>
 
     <string-array name="region_visualization_list">
+        <item>Tasikmalaya</item>
         <item>Bandung</item>
         <item>Cianjur</item>
         <item>Indramayu</item>
         <item>Subang</item>
+    </string-array>
+
+    <string-array name="prices_list">
+        <item>Rata-rata</item>
+        <item>Tertinggi</item>
+        <item>Terendah</item>
     </string-array>
 
 </resources>
