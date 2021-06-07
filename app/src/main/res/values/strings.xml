@@ -68,6 +68,10 @@
     <string name="sorry_data_not_provide">Mohon maaf, data belum tersedia.</string>
     <string name="price_in_rupiah">Harga dalam Rupiah</string>
     <string name="search_prices_visualization_now">Cari visualisasi harga pasar sekarang !</string>
+    <string name="description_image_welcome_slide_3">Gambar wanita memegang hp di depan kebun</string>
+    <string name="description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="string_description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="description_image_welcome_slide_1">Gambar bakul sayuran</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
