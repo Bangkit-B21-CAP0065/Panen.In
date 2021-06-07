@@ -122,6 +122,8 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
     }
 
     private fun setLineBar(listPrice: ArrayList<PriceItems>) {
+        Toast.makeText(this@MarketVisualizationActivity,
+            "visualisasi harga $chosenPrices untuk komoditas $chosenCommodity tahun $chosenYear pada wilayah $chosenRegion berhasil ditampilkan !", Toast.LENGTH_LONG).show()
         val countLineNumber = listPrice.size
 
         with(mChart) {
