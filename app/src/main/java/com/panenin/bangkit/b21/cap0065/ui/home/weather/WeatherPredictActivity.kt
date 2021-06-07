@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.panenin.bangkit.b21.cap0065.R
+import com.panenin.bangkit.b21.cap0065.data.WeatherItems
 import com.panenin.bangkit.b21.cap0065.databinding.ActivityWeatherPredictBinding
 import java.util.*
 
@@ -42,18 +43,28 @@ class WeatherPredictActivity : AppCompatActivity() {
         }
 
         weatherViewModel.getWeathers().observe(this, { weatherItems ->
-            val searchCity = binding.inputText.text.toString()
-            binding.textLocation.text = searchCity
             if (weatherItems != null) {
+                binding.textLocation.text = weatherItems[0].city
                 adapter.setData(weatherItems)
-                showLoading(false)
-            } else{
-                Toast.makeText(this@WeatherPredictActivity, "Silahkan masukan input terlebih dahulu", Toast.LENGTH_SHORT).show()
                 showLoading(false)
             }
         })
 
-    supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        weatherViewModel.statusFailure.observe(this, { statusFailure ->
+            statusFailure?.let{
+                val city = binding.inputText.text.toString()
+                if(statusFailure == true){
+                    binding.textLocation.text = getString(R.string.input_city)
+                    Toast.makeText(this@WeatherPredictActivity, getString(R.string.sorry_cannot_find_city), Toast.LENGTH_SHORT).show()
+                    showLoading(false)
+                    adapter.deleteData()
+                } else {
+                    binding.textLocation.text = city
+                }
+            }
+        })
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.title_weather_prediction_page)
     }
 

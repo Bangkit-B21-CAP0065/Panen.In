@@ -17,6 +17,11 @@ class WeatherAdapter: RecyclerView.Adapter<WeatherAdapter.WeatherViewHolder>() {
         notifyDataSetChanged()
     }
 
+    fun deleteData(){
+        mData.clear()
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int

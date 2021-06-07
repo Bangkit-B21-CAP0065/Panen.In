@@ -11,7 +11,8 @@ import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
 
 class WeatherViewModel: ViewModel() {
-    val listWeathers = MutableLiveData<ArrayList<WeatherItems>>()
+    private val listWeathers = MutableLiveData<ArrayList<WeatherItems>>()
+    var statusFailure = MutableLiveData<Boolean?>()
 
     fun setWeather(city: String) {
         val listItems = ArrayList<WeatherItems>()
@@ -55,6 +56,7 @@ class WeatherViewModel: ViewModel() {
 
                     //set data ke adapter
                     listWeathers.postValue(listItems)
+                    statusFailure.value = false
                 } catch (e: Exception) {
                     Log.d("Exception", e.message.toString())
                 }
@@ -62,6 +64,7 @@ class WeatherViewModel: ViewModel() {
 
             override fun onFailure(statusCode: Int, headers: Array<out Header>?, responseBody: ByteArray?, error: Throwable?) {
                 Log.d("onFailure", error?.message.toString())
+                statusFailure.value = true
             }
         })
     }
