@@ -53,8 +53,6 @@ class WeatherViewModel: ViewModel() {
                     weatherItems.sunIntensity = resultIntensity.toString()
 
                     listItems.add(weatherItems)
-
-                    //set data ke adapter
                     listWeathers.postValue(listItems)
                     statusFailure.value = false
                 } catch (e: Exception) {

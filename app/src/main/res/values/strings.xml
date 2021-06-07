@@ -65,6 +65,8 @@
     <string name="explain_duration_tag">x 4 Bulan</string>
     <string name="related_to_tag">Harga</string>
     <string name="sorry_cannot_find_city">Mohon maaf, kota tidak ditemukan.</string>
+    <string name="sorry_data_not_provide">Mohon maaf, data belum tersedia.</string>
+    <string name="price_in_rupiah">Harga dalam Rupiah</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
