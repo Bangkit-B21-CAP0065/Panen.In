@@ -2,7 +2,6 @@ package com.panenin.bangkit.b21.cap0065.ui.home.marketVisualization
 
 import android.graphics.Paint
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
@@ -17,7 +16,8 @@ import com.github.mikephil.charting.data.*
 import com.panenin.bangkit.b21.cap0065.R
 import com.panenin.bangkit.b21.cap0065.data.PriceItems
 import com.panenin.bangkit.b21.cap0065.databinding.ActivityMarketVisualizationBinding
-
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
@@ -40,7 +40,7 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.title = getString(R.string.title_visualization_page)
         mChart = binding.chart
-        mChart.setNoDataText("Cari visualisasi harga pasar sekarang !")
+        mChart.setNoDataText(getString(R.string.search_prices_visualization_now))
         val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
         p.textSize = 60f
         mChart.invalidate()
@@ -98,12 +98,18 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         marketPriceViewModel.getCommodityPrices().observe(this, { listPrices ->
             if(listPrices != null){
                 setLineBar(listPrices)
+            } else{
+                mChart.setNoDataText(getString(R.string.sorry_data_not_provide))
+                val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
+                p.textSize = 60f
+                mChart.invalidate()
             }
         })
 
         marketPriceViewModel.statusFailure.observe(this, { statusFailure ->
             statusFailure?.let{
                 if(statusFailure == true){
+                    marketPriceViewModel.deleteCommodityPrices()
                     mChart.setNoDataText(getString(R.string.sorry_data_not_provide))
                     val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
                     p.textSize = 60f
@@ -115,7 +121,7 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
     }
 
     private fun setLineBar(listPrice: ArrayList<PriceItems>) {
-        var countLineNumber = listPrice.size
+        val countLineNumber = listPrice.size
 
         with(mChart) {
             setTouchEnabled(true)

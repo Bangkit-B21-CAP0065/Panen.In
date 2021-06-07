@@ -67,6 +67,7 @@
     <string name="sorry_cannot_find_city">Mohon maaf, kota tidak ditemukan.</string>
     <string name="sorry_data_not_provide">Mohon maaf, data belum tersedia.</string>
     <string name="price_in_rupiah">Harga dalam Rupiah</string>
+    <string name="search_prices_visualization_now">Cari visualisasi harga pasar sekarang !</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>

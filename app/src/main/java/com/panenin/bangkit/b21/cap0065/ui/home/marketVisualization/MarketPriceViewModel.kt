@@ -23,6 +23,7 @@ class MarketPriceViewModel : ViewModel() {
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
                 try {
+                    Log.d("VIEW MODEL", "SUKSESSSSS")
                     //parsing json
                     val result = String(responseBody)
                     val resultArray = JSONArray(result)
@@ -47,12 +48,18 @@ class MarketPriceViewModel : ViewModel() {
 
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
                 Log.d("onFailure", error.message.toString())
+                statusFailure.value = true
             }
         })
     }
 
     fun getCommodityPrices(): LiveData<ArrayList<PriceItems>> {
         return listPrices
+    }
+
+    fun deleteCommodityPrices(){
+        val listPrice = ArrayList<PriceItems>()
+        listPrices.postValue(listPrice)
     }
 
 }
