@@ -8,6 +8,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.panenin.bangkit.b21.cap0065.databinding.FragmentHomeBinding
+import com.panenin.bangkit.b21.cap0065.ui.home.marketVisualization.MarketVisualizationActivity
+import com.panenin.bangkit.b21.cap0065.ui.home.recommendationCrop.RecommendationCropActivity
 import com.panenin.bangkit.b21.cap0065.ui.home.weather.WeatherPredictActivity
 
 class HomeFragment : Fragment(){
@@ -33,12 +35,12 @@ class HomeFragment : Fragment(){
         }
         binding.buttonRecommendCrop.setOnClickListener{
             Toast.makeText(requireContext(), "button recommend clicked!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(activity,RecommendationCropActivity::class.java)
+            val intent = Intent(activity, RecommendationCropActivity::class.java)
             startActivity(intent)
         }
         binding.buttonMarketVisualization.setOnClickListener{
             Toast.makeText(requireContext(), "button market visualization works!", Toast.LENGTH_SHORT).show()
-            val intent = Intent(activity,MarketVisualizationActivity::class.java)
+            val intent = Intent(activity, MarketVisualizationActivity::class.java)
             startActivity(intent)
         }
         return binding.root

@@ -1,4 +1,4 @@
-package com.panenin.bangkit.b21.cap0065.ui.home
+package com.panenin.bangkit.b21.cap0065.ui.home.marketVisualization
 
 import android.graphics.Paint
 import android.os.Bundle
