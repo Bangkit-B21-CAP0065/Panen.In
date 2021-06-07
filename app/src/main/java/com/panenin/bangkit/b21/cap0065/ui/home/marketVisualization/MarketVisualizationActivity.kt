@@ -90,7 +90,12 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         chosenYear =  resources.getStringArray(R.array.year_list).first()
         chosenRegion = resources.getStringArray(R.array.region_visualization_list).first()
         chosenCommodity = resources.getStringArray(R.array.plant_type_list).first()
-        chosenPricesPosition = resources.getStringArray(R.array.prices_list).first()
+        chosenPrices = resources.getStringArray(R.array.prices_list).first()
+        when(chosenPrices){
+            "Rata-rata" -> chosenPricesPosition = "0"
+            "Tertinggi" -> chosenPricesPosition = "1"
+            "Terendah" -> chosenPricesPosition = "2"
+        }
 
         binding.visualizationButton.setOnClickListener{
             marketPriceViewModel.setCommodityPrices(chosenYear, chosenRegion.toLowerCase(), chosenCommodity.toLowerCase())
@@ -99,11 +104,6 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         marketPriceViewModel.getCommodityPrices().observe(this, { listPrices ->
             if(listPrices != null){
                 setLineBar(listPrices)
-            } else{
-                mChart.setNoDataText(getString(R.string.sorry_data_not_provide))
-                val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
-                p.textSize = 60f
-                mChart.invalidate()
             }
         })
 
@@ -112,8 +112,8 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 if(statusFailure == true){
                     marketPriceViewModel.deleteCommodityPrices()
                     mChart.setNoDataText(getString(R.string.sorry_data_not_provide))
-                    val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
-                    p.textSize = 60f
+                    val paint: Paint = mChart.getPaint(Chart.PAINT_INFO)
+                    paint.textSize = 60f
                     mChart.invalidate()
                     Toast.makeText(this@MarketVisualizationActivity, getString(R.string.sorry_data_not_provide), Toast.LENGTH_SHORT).show()
                 }
@@ -134,7 +134,7 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
 
         val labels = ArrayList<String>()
         for (i in 1..countLineNumber) {
-            labels.add("bulan $i")
+            labels.add("bulan ${listPrice[i-1].month}")
         }
 
         var lineEntries = ArrayList<Entry>()
@@ -145,7 +145,6 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
                 "1" -> dataFloatPrice = listPrice[i].maxPrice.toFloat()
                 "2" -> dataFloatPrice = listPrice[i].minPrice.toFloat()
             }
-
             lineEntries.add(Entry(dataFloatPrice, i))
         }
 

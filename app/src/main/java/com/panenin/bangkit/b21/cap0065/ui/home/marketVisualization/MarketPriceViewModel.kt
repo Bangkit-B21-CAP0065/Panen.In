@@ -23,7 +23,6 @@ class MarketPriceViewModel : ViewModel() {
         client.get(url, object : AsyncHttpResponseHandler() {
             override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
                 try {
-                    Log.d("VIEW MODEL", "SUKSESSSSS")
                     //parsing json
                     val result = String(responseBody)
                     val resultArray = JSONArray(result)
