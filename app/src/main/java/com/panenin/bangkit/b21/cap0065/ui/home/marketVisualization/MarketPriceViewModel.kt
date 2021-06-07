@@ -60,5 +60,4 @@ class MarketPriceViewModel : ViewModel() {
         val listPrice = ArrayList<PriceItems>()
         listPrices.postValue(listPrice)
     }
-
 }
