@@ -90,6 +90,7 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         chosenYear =  resources.getStringArray(R.array.year_list).first()
         chosenRegion = resources.getStringArray(R.array.region_visualization_list).first()
         chosenCommodity = resources.getStringArray(R.array.plant_type_list).first()
+        chosenPricesPosition = resources.getStringArray(R.array.prices_list).first()
 
         binding.visualizationButton.setOnClickListener{
             marketPriceViewModel.setCommodityPrices(chosenYear, chosenRegion.toLowerCase(), chosenCommodity.toLowerCase())
