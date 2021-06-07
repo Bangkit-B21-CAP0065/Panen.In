@@ -1,22 +1,18 @@
-package com.panenin.bangkit.b21.cap0065.ui.home
+package com.panenin.bangkit.b21.cap0065.ui.home.recommendationCrop
 
-import android.content.Context
 import android.graphics.Paint
 import android.os.Bundle
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
+import androidx.lifecycle.ViewModelProvider
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.Chart
-import com.github.mikephil.charting.charts.LineChart
-import com.github.mikephil.charting.components.Legend
-import com.github.mikephil.charting.components.Legend.LegendForm
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
@@ -28,24 +24,30 @@ import cz.msebera.android.httpclient.Header
 import org.json.JSONArray
 
 
-class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
+class CropRecommendationActivity : AppCompatActivity(), AdapterView.OnItemSelectedListener{
 
     private lateinit var chosenRegion : String
     private lateinit var chosenPlantType : String
     private lateinit var chosenDuration : String
     private lateinit var binding: ActivityRecommendationCropBinding
     private lateinit var barChart: BarChart
+    private lateinit var cropPredictionViewModel: CropPredictionViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRecommendationCropBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = getString(R.string.title_reccomendation_page)
+
         barChart = binding.barChart
         barChart.setNoDataText("Hitung prediksi sekarang !")
         val p: Paint = barChart.getPaint(Chart.PAINT_INFO)
         p.textSize = 60f
         barChart.invalidate()
+
+        cropPredictionViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(CropPredictionViewModel::class.java)
 
         val adapterRegionChoosed = ArrayAdapter.createFromResource(
                 this,
@@ -82,45 +84,33 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
         chosenDuration =  resources.getStringArray(R.array.duration_list).first()
 
         binding.predictCropButton.setOnClickListener{
-            getCropPrediction(chosenRegion, chosenPlantType, chosenDuration)
+            cropPredictionViewModel.setCropPrediction(chosenRegion, chosenPlantType, chosenDuration)
         }
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.title = getString(R.string.title_reccomendation_page)
-    }
-
-    private fun getCropPrediction(city: String, commodity: String, duration: String) {
-        var tempDurationNumber = duration.toInt()
-
-        val url = "http://34.101.212.102/api/panen?kota=$city&crop=$commodity&bulan=$duration"
-
-        val client = AsyncHttpClient()
-        client.get(url, object : AsyncHttpResponseHandler() {
-            override fun onSuccess(statusCode: Int, headers: Array<Header>, responseBody: ByteArray) {
-                try {
-                    Toast.makeText(this@RecommendationCropActivity,
-                            "Rekomendasi bibit $chosenPlantType untuk wilayah $chosenRegion, durasi: $chosenDuration x 4 bulan berhasil dimuat !", Toast.LENGTH_LONG).show()
-                    //parsing json
-                    val result = String(responseBody)
-                    val resultArray = JSONArray(result)
-                    setBarChart(tempDurationNumber, resultArray)
-                } catch (e: Exception) {
-                    Log.d("Exception", e.message.toString())
-                }
-            }
-
-            override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
-                barChart.setNoDataText("Mohon maaf, data tidak dapat diprediksi")
-                val p: Paint = barChart.getPaint(Chart.PAINT_INFO)
-                p.textSize = 60f
-                barChart.invalidate()
-                Toast.makeText(this@RecommendationCropActivity, "Mohon maaf, data tidak dapat diprediksi", Toast.LENGTH_SHORT).show()
-                Log.d("onFailure", error.message.toString())
+        cropPredictionViewModel.getCropPredictions().observe(this, { resultArrayPrediction ->
+            if(resultArrayPrediction != null){
+                setBarChart(resultArrayPrediction)
             }
         })
+
+        cropPredictionViewModel.statusFailure.observe(this, { statusFailure ->
+            statusFailure?.let{
+                if(statusFailure == true){
+                    cropPredictionViewModel.deleteCropPredictions()
+                    barChart.setNoDataText("Mohon maaf, data tidak dapat diprediksi")
+                    val paint: Paint = barChart.getPaint(Chart.PAINT_INFO)
+                    paint.textSize = 60f
+                    barChart.invalidate()
+                    Toast.makeText(this@CropRecommendationActivity, "Mohon maaf, data tidak dapat diprediksi", Toast.LENGTH_SHORT).show()
+                }
+            }
+        })
+
     }
 
-    private fun setBarChart(numberOfBar: Int, dataPrediction: JSONArray) {
+    private fun setBarChart(dataPrediction: JSONArray) {
+        Toast.makeText(this@CropRecommendationActivity,
+            "Rekomendasi bibit $chosenPlantType untuk wilayah $chosenRegion, durasi: $chosenDuration x 4 bulan berhasil dimuat !", Toast.LENGTH_LONG).show()
         var countPredictionNumber = dataPrediction.length()
 
         val entries = ArrayList<BarEntry>()
@@ -151,22 +141,12 @@ class RecommendationCropActivity : AppCompatActivity(), AdapterView.OnItemSelect
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {
-            R.id.region_dropdown -> {
-                Toast.makeText(this, "position $position, Region Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
-                chosenRegion = parent.selectedItem.toString().toLowerCase()
-            }
-            R.id.plant_type_dropdown -> {
-                Toast.makeText(this, "position $position, Plan type Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
-                chosenPlantType = parent.selectedItem.toString().toLowerCase()
-            }
-            R.id.duration_dropdown -> {
-                Toast.makeText(this, "position $position, Duration Selected: " + parent.selectedItem.toString(), Toast.LENGTH_SHORT).show()
-                chosenDuration = parent.selectedItem.toString()
-            }
+            R.id.region_dropdown -> chosenRegion = parent.selectedItem.toString().toLowerCase()
+            R.id.plant_type_dropdown -> chosenPlantType = parent.selectedItem.toString().toLowerCase()
+            R.id.duration_dropdown -> chosenDuration = parent.selectedItem.toString()
         }
     }
 
-    // function to the button on press
     override fun onOptionsItemSelected(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             android.R.id.home -> {

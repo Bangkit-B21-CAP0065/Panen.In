@@ -22,8 +22,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.home.MarketVisualizationActivity" />
-        <activity android:name=".ui.home.RecommendationCropActivity" />
+        <activity android:name=".ui.home.marketVisualization.MarketVisualizationActivity" />
+        <activity android:name=".ui.home.recommendationCrop.CropRecommendationActivity" />
         <activity android:name=".ui.home.weather.WeatherPredictActivity" />
 <!--        <activity android:name=".MainActivity"/>-->
     </application>
