@@ -19,6 +19,7 @@
     <color name="secondaryColor">#C56200</color>
 
     <color name="bg_button">@color/white</color>
+    <color name="red">#E74C3C</color>
 
     <!-- dots inactive colors -->
     <color name="dot_dark_screen1">#2980b9</color>
@@ -29,6 +30,7 @@
     <color name="dot_light_screen1">#6a89cc</color>
     <color name="dot_light_screen2">#e55039</color>
     <color name="dot_light_screen3">#82ccdd</color>
+    <color name="colorYellow">#F9A825</color>
 
     <array name="array_dot_active">
         <item>@color/dot_light_screen1</item>

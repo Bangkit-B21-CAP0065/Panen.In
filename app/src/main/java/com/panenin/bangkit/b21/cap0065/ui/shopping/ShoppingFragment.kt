@@ -1,5 +1,6 @@
 package com.panenin.bangkit.b21.cap0065.ui.shopping
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.panenin.bangkit.b21.cap0065.data.CropEntity
 import com.panenin.bangkit.b21.cap0065.databinding.FragmentShoppingBinding
+import com.panenin.bangkit.b21.cap0065.ui.home.weather.WeatherPredictActivity
 
 class ShoppingFragment : Fragment() {
 
@@ -25,13 +27,18 @@ class ShoppingFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
+        
         activity?.let {
             viewModelCrop = ViewModelProvider(it, ViewModelProvider.NewInstanceFactory())[CropViewModel::class.java]
         }
 
         val listMovie = viewModelCrop.getListCrop()
         setRecycler(listMovie)
+
+        shoppingBinding.checkoutButton.setOnClickListener{
+            val intent = Intent(activity, CheckoutActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun setRecycler(data: List<CropEntity>) {

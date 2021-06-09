@@ -1,6 +1,7 @@
 package com.panenin.bangkit.b21.cap0065.ui.shopping
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -10,6 +11,7 @@ import com.panenin.bangkit.b21.cap0065.databinding.ItemEcommerceBinding
 class CropAdapter : RecyclerView.Adapter<CropAdapter.ListViewHolder>() {
 
     private val listCropEntity = ArrayList<CropEntity>()
+    private var tempCount = 0;
 
     fun setData(cropEntity: List<CropEntity>?) {
         if (cropEntity == null) return
@@ -39,6 +41,21 @@ class CropAdapter : RecyclerView.Adapter<CropAdapter.ListViewHolder>() {
                     .load(cropEntity.imgPoster)
                     .into(imgItemPhoto)
 
+                btnPlus.setOnClickListener {
+                    tempCount = Integer.parseInt(tvItemCount.text as String)
+                    tempCount += 1
+                    tvItemCount.text = tempCount.toString()
+                }
+
+                btnMinus.setOnClickListener {
+                    tempCount = Integer.parseInt(tvItemCount.text as String)
+                    if (tempCount == 0) {
+                        tempCount = 0
+                    } else {
+                        tempCount -= 1
+                    }
+                    tvItemCount.text = tempCount.toString()
+                }
             }
         }
     }

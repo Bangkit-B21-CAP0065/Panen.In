@@ -20,6 +20,7 @@ class CropPredictionViewModel : ViewModel() {
     fun setCropPrediction(city: String, commodity: String, duration: String) {
 
         val url = "http://35.184.194.249/api/panen?kota=$city&crop=$commodity&bulan=$duration"
+        Log.d("CROP", "ini urlnya : $url")
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {
