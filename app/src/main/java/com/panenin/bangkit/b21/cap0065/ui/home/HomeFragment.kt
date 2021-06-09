@@ -29,17 +29,14 @@ class HomeFragment : Fragment(){
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         binding.buttonPredictWeather.setOnClickListener{
-            Toast.makeText(requireContext(), "button predict clicked!", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, WeatherPredictActivity::class.java)
             startActivity(intent)
         }
         binding.buttonRecommendCrop.setOnClickListener{
-            Toast.makeText(requireContext(), "button recommend clicked!", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, CropRecommendationActivity::class.java)
             startActivity(intent)
         }
         binding.buttonMarketVisualization.setOnClickListener{
-            Toast.makeText(requireContext(), "button market visualization works!", Toast.LENGTH_SHORT).show()
             val intent = Intent(activity, MarketVisualizationActivity::class.java)
             startActivity(intent)
         }
