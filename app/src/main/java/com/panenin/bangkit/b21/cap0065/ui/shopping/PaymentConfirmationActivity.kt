@@ -15,6 +15,8 @@ class PaymentConfirmationActivity : AppCompatActivity() {
         binding = ActivityPaymentConfirmationBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.hide()
+
         binding.buttonConfirm.setOnClickListener{
             val intent = Intent(this, SuccessActivity::class.java)
             startActivity(intent)
