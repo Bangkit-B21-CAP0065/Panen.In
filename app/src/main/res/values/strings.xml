@@ -69,6 +69,11 @@
     <string name="price_in_rupiah">Harga dalam Rupiah</string>
     <string name="search_prices_visualization_now">Cari visualisasi harga pasar sekarang !</string>
     <string name="cart">Cart</string>
+    <string name="order_id_text">ORDER ID: #190211246390</string>
+    <string name="send_to">Diantar ke</string>
+    <string name="address">Puri Indah Garini blok C no.3</string>
+    <string name="edit">edit</string>
+    <string name="location">location</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
