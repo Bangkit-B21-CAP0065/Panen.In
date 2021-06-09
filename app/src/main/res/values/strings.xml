@@ -74,6 +74,17 @@
     <string name="address">Puri Indah Garini blok C no.3</string>
     <string name="edit">edit</string>
     <string name="location">location</string>
+    <string name="date">SELASA, 20 OKT 2020</string>
+    <string name="time">20:21</string>
+    <string name="order_text">PESANAN</string>
+    <string name="send_method_text">METODE PENGIRIMAN</string>
+    <string name="payment_method_text">METODE PEMBAYARAN</string>
+    <string name="payment_detail_text">DETAIL PEMBAYARAN</string>
+    <string name="order_now">PESAN SEKARANG</string>
+    <string name="bibit_image">bibit</string>
+    <string name="price_text">Rp500.000</string>
+    <string name="bibit_name">Bibit Kopi</string>
+    <string name="qty_txt">10</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
