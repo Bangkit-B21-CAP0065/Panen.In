@@ -7,7 +7,7 @@ Panen.in is an app to help Indonesian people predict and accelerates crop produc
 * [Installation](#installation)
 
 ## General Info
-WIP
+Indonesia often boasts about being an agricultural country. Yet, we still import agricultural products from another country. 356.286 tonnes of rice are imported by Indonesia from foreign countries in 2020, yet West Java has 322,000 tonnes of rice surplus in January-April 2021. Ridwan Kamil even stated that instead of importing rice, other provinces should just buy rice from West Java. Those contradictions interest us to question whether the government needs a solution to implement a countrywide data-driven approach on crop planning, market monitoring, and food vulnerability prediction to improve the decision-making process. 
 
 ## Technologies
   * Kotlin version: 1.5.0
@@ -39,8 +39,3 @@ To run this project, follow these steps:
     - If you use real-device make sure to configure developer options (turn on USB Debugging)
 
   6. Run the android app in emulator
-
-## Documentation
-WIP
-
-
