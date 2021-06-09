@@ -121,7 +121,7 @@ class CropRecommendationActivity : AppCompatActivity(), AdapterView.OnItemSelect
             entries.add(BarEntry(dataFloatPrediction, i))
         }
 
-        val barDataSet = BarDataSet(entries, "Prediksi dalam satuan ton")
+        val barDataSet = BarDataSet(entries, "Prediksi dalam satuan Ku/Ha")
 
         val labels = ArrayList<String>()
         for (i in 1..countPredictionNumber) {
