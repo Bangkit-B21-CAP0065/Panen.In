@@ -27,6 +27,7 @@ class CropPredictionViewModel : ViewModel() {
                 try {
                     //parsing json
                     val result = String(responseBody)
+                    Log.d("CROP", "ini resultnya : $result")
                     val resultArray = JSONArray(result)
                     listPredictions.postValue(resultArray)
                     statusFailure.value = false
