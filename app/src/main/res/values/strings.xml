@@ -30,7 +30,7 @@
     <string name="choose_duration_tag">Pilih durasi</string>
     <string name="predict_now">Prediksi Sekarang</string>
     <string name="number_prediction_text">00.000</string>
-    <string name="unit_prediction">Ton per Hektar</string>
+    <string name="unit_prediction">Ku/Ha</string>
     <string name="choose_year_tag">Pilih Tahun</string>
     <string name="year_tag">Tahun</string>
     <string name="region_tag">Kawasan</string>
@@ -68,6 +68,13 @@
     <string name="sorry_data_not_provide">Mohon maaf, data belum tersedia.</string>
     <string name="price_in_rupiah">Harga dalam Rupiah</string>
     <string name="search_prices_visualization_now">Cari visualisasi harga pasar sekarang !</string>
+    <string name="description_image_welcome_slide_3">Gambar wanita memegang hp di depan kebun</string>
+    <string name="description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="string_description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="description_image_welcome_slide_1">Gambar bakul sayuran</string>
+    <string name="image_logo_panenin">Image logo Panenin</string>
+    <string name="paddy">Padi</string>
+    <string name="rice">beras</string>
     <string name="cart">Cart</string>
     <string name="order_id_text">ORDER ID: #190211246390</string>
     <string name="send_to">Diantar ke</string>
@@ -101,13 +108,14 @@
     <string name="confirm_order">KONFIRMASI PEMBAYARAN</string>
     <string name="cancel_order_x">X Batalkan Pesanan</string>
     <string name="confirm_order_title">Konfirmasi Pesanan</string>
+
     <string name="success_txt">Pesananmu sedang diproses ...</string>
     <string name="back_to_home">KEMBALI KE BERANDA</string>
     <string name="success_image">success image</string>
 
     <string-array name="region_list">
-        <item>Jawa Barat</item>
-        <item>Jawa Tengah</item>
+        <item>Bandung</item>
+        <item>Bogor</item>
     </string-array>
 
     <string-array name="plant_type_list">

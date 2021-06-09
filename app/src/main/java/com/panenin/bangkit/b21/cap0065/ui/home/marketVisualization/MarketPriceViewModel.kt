@@ -8,16 +8,17 @@ import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.panenin.bangkit.b21.cap0065.data.PriceItems
 import cz.msebera.android.httpclient.Header
+import cz.msebera.android.httpclient.conn.ConnectTimeoutException
 import org.json.JSONArray
 
 class MarketPriceViewModel : ViewModel() {
-    private val listPrices = MutableLiveData<ArrayList<PriceItems>>()
+    private var listPrices = MutableLiveData<ArrayList<PriceItems>>()
     var statusFailure = MutableLiveData<Boolean?>()
 
     fun setCommodityPrices(year: String, city: String, commodity: String) {
         val listPrice = ArrayList<PriceItems>()
 
-        val url = "http://34.101.212.102/api/harga?kota=$city&crop=$commodity&tahun=$year"
+        val url = "http://35.184.194.249/api/harga?kota=$city&crop=$commodity&tahun=$year"
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {
@@ -47,6 +48,7 @@ class MarketPriceViewModel : ViewModel() {
 
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
                 Log.d("onFailure", error.message.toString())
+                listPrices.value?.clear()
                 statusFailure.value = true
             }
         })
@@ -56,8 +58,12 @@ class MarketPriceViewModel : ViewModel() {
         return listPrices
     }
 
+    fun getSize(): Int? {
+        if(listPrices.value == null) return 0
+        else return listPrices.value?.size
+    }
+
     fun deleteCommodityPrices(){
-        val listPrice = ArrayList<PriceItems>()
-        listPrices.postValue(listPrice)
+        listPrices.value?.clear()
     }
 }

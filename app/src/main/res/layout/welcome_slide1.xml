@@ -19,6 +19,7 @@
             android:src="@drawable/image_slide_1"
             android:layout_marginTop="48dp"
             app:layout_constraintBottom_toTopOf="@id/textView"
+            android:contentDescription="@string/description_image_welcome_slide_1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

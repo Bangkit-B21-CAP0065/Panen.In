@@ -16,12 +16,13 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/image_slide_3"
             android:layout_marginTop="48dp"
+            android:src="@drawable/image_slide_3"
             app:layout_constraintBottom_toTopOf="@id/textView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            tools:layout_editor_absoluteX="0dp" />
+            android:contentDescription="@string/description_image_welcome_slide_3" />
 
         <TextView
             android:id="@+id/textView"
