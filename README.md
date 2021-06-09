@@ -31,7 +31,7 @@ To run this project, follow these steps:
 
   3. Open an existing project in IDE
 
-  4. Wait for Gradle to finish build / synchronize build.gradle:app <br />  
+  4. Wait for Gradle to finish build / synchronize build.gradle:app    
     Notes: This step will install all needed dependencies 
 
   5. Create new emulator (virtual device) or you can use your own device  
