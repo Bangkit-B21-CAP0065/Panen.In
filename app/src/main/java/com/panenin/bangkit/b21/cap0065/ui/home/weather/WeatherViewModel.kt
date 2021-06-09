@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.panenin.bangkit.b21.cap0065.BuildConfig
 import com.panenin.bangkit.b21.cap0065.data.WeatherItems
 import cz.msebera.android.httpclient.Header
 import org.json.JSONObject
@@ -18,7 +19,7 @@ class WeatherViewModel: ViewModel() {
         val listItems = ArrayList<WeatherItems>()
 
         val apiKey = "874f6acc3c0bad4f9c019e59f8d8c6bc"
-        val url = "https://api.openweathermap.org/data/2.5/weather?appid=$apiKey&q=$city,id&lang=id&units=metric"
+        val url = "https://api.openweathermap.org/data/2.5/weather?appid=${BuildConfig.WEATHER_TOKEN}&q=$city,id&lang=id&units=metric"
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {

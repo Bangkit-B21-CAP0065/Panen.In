@@ -4,6 +4,12 @@ plugins {
     id 'kotlin-parcelize'
 }
 
+def getWeatherApiKey(){
+    def Properties props = new Properties()
+    props.load(new FileInputStream(new File('local.properties')))
+    return props['WEATHER_TOKEN']
+}
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -25,8 +31,14 @@ android {
         }
     }
 
+    applicationVariants.all { variant ->
+        variant.buildConfigField "String", "WEATHER_TOKEN", "\""+getWeatherApiKey()+"\""
+    }
+
+
     buildFeatures {
-        viewBinding true
+        viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
