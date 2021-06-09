@@ -23,8 +23,8 @@ To run this project, follow these steps:
     * Install IDE. Recommendation: Android Studio
     * Install Kotlin plugin in IDE
 
-  2. Clone this project
-    Go to folder that you want to put this project, and in command prompt:
+  2. Clone this project <br />
+    Go to folder that you want to put this project, and in command prompt: <br />
     ```
     $ git clone https://github.com/Bangkit-B21-CAP0065/Panen.In.git
     ```
@@ -34,8 +34,8 @@ To run this project, follow these steps:
   4. Wait for Gradle to finish build / synchronize build.gradle:app. 
     Notes: This step will install all needed dependencies 
 
-  5. Create new emulator (virtual device) or you can use your own device
-    * If you use virtual device, make sure to configure virtualization and HAXM
+  5. Create new emulator (virtual device) or you can use your own device <br />
+    * If you use virtual device, make sure to configure virtualization and HAXM <br />
     * If you use real-device make sure to configure developer options (turn on USB Debugging)
 
   6. Run the android app in emulator
