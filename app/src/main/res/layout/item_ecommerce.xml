@@ -13,6 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <ImageView
             android:id="@+id/img_item_photo"
             android:layout_width="match_parent"
@@ -38,14 +39,14 @@
 
         <TextView
             android:id="@+id/tv_title"
+            android:layout_marginLeft="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:gravity="start"
             android:textColor="@color/primaryColor"
             android:textSize="20sp"
             android:fontFamily="@font/quicksand"
-            app:layout_constraintBottom_toBottomOf="@+id/img_item_photo"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price"
             app:layout_constraintStart_toStartOf="@+id/img_item_photo"
             app:layout_constraintBottom_toTopOf="@id/tv_price"
             app:layout_constraintVertical_bias="1.0"
@@ -53,9 +54,10 @@
 
         <TextView
             android:id="@+id/tv_price"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="45dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
             android:gravity="start"
             android:textColor="@color/secondaryColor"
             android:textSize="16sp"
@@ -71,6 +73,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/bg_plus_minus_button"
             android:fontFamily="sans-serif-thin"
             android:text="@string/plus"
