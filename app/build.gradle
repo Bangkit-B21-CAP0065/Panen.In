@@ -4,12 +4,6 @@ plugins {
     id 'kotlin-parcelize'
 }
 
-def getWeatherApiKey(){
-    def Properties props = new Properties()
-    props.load(new FileInputStream(new File('local.properties')))
-    return props['WEATHER_TOKEN']
-}
-
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -22,6 +16,9 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField "String", "WEATHER_TOKEN", '"874f6acc3c0bad4f9c019e59f8d8c6bc"'
+        buildConfigField "String", "WEATHER_URL", '"https://api.openweathermap.org/data/2.5/"'
+        buildConfigField "String", "PANENIN_URL", '"http://35.184.194.249/api/"'
     }
 
     buildTypes {
@@ -30,11 +27,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
-    applicationVariants.all { variant ->
-        variant.buildConfigField "String", "WEATHER_TOKEN", "\""+getWeatherApiKey()+"\""
-    }
-
 
     buildFeatures {
         viewBinding = true

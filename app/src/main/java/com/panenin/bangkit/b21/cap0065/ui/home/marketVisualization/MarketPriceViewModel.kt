@@ -6,9 +6,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.panenin.bangkit.b21.cap0065.BuildConfig
 import com.panenin.bangkit.b21.cap0065.data.PriceItems
 import cz.msebera.android.httpclient.Header
-import cz.msebera.android.httpclient.conn.ConnectTimeoutException
 import org.json.JSONArray
 
 class MarketPriceViewModel : ViewModel() {
@@ -18,7 +18,7 @@ class MarketPriceViewModel : ViewModel() {
     fun setCommodityPrices(year: String, city: String, commodity: String) {
         val listPrice = ArrayList<PriceItems>()
 
-        val url = "http://35.184.194.249/api/harga?kota=$city&crop=$commodity&tahun=$year"
+        val url = "${BuildConfig.PANENIN_URL}harga?kota=$city&crop=$commodity&tahun=$year"
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {

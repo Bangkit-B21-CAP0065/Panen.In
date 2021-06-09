@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModel
 import com.github.mikephil.charting.charts.Chart
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
+import com.panenin.bangkit.b21.cap0065.BuildConfig
 import com.panenin.bangkit.b21.cap0065.data.PriceItems
 import cz.msebera.android.httpclient.Header
 import org.json.JSONArray
@@ -19,7 +20,7 @@ class CropPredictionViewModel : ViewModel() {
 
     fun setCropPrediction(city: String, commodity: String, duration: String) {
 
-        val url = "http://35.184.194.249/api/panen?kota=$city&crop=$commodity&bulan=$duration"
+        val url = "${BuildConfig.PANENIN_URL}panen?kota=$city&crop=$commodity&bulan=$duration"
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {

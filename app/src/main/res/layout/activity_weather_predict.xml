@@ -20,6 +20,7 @@
             android:layout_weight="0.8"
             android:autofillHints=""
             android:hint="@string/input_city"
+            android:fontFamily="@font/quicksand"
             android:inputType="text"
             app:layout_constraintEnd_toStartOf="@+id/btnInputCity"
             app:layout_constraintStart_toStartOf="parent"
@@ -34,6 +35,7 @@
             android:layout_weight="0.2"
             android:backgroundTint="@color/orange_200"
             android:text="@string/search"
+            android:fontFamily="@font/quicksand_bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,6 +76,7 @@
                     android:gravity="center_horizontal"
                     android:maxLines="2"
                     android:text="@string/input_city"
+                    android:fontFamily="@font/quicksand_bold"
                     android:textColor="@color/orange_200"
                     android:textSize="18sp"
                     app:layout_constraintBottom_toBottomOf="parent"

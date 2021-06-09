@@ -440,23 +440,25 @@
                     android:layout_marginBottom="8dp"
                     android:fontFamily="@font/quicksand_bold"
                     android:text="@string/total_pembayaran"
-                    android:textSize="22sp"
                     android:textColor="@color/primaryColor"
-                    app:layout_constraintTop_toBottomOf="@id/ongkir"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ongkir" />
 
                 <TextView
                     android:id="@+id/total_txt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="20dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
                     android:layout_gravity="end"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="8dp"
                     android:fontFamily="@font/quicksand_bold"
                     android:text="@string/total_txt"
-                    android:textSize="22sp"
                     android:textColor="@color/primaryColor"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/ongkir_txt" />
 
@@ -468,12 +470,18 @@
             android:id="@+id/button_payment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
-            android:textSize="22sp"
-            android:text="@string/order_now"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:backgroundTint="@color/colorYellow"
-            app:layout_constraintTop_toBottomOf="@id/card_view_payment_detail"
-            />
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/order_now"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/card_view_payment_detail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

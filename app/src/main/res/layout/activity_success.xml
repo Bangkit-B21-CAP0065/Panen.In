@@ -28,16 +28,18 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/primaryColor"
-            android:layout_marginBottom="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/quicksand_bold"
             android:gravity="start"
             android:paddingTop="6dp"
             android:text="@string/success_txt"
+            android:textColor="@color/primaryColor"
             android:textSize="32sp"
-            android:fontFamily="@font/quicksand_bold"
-            app:layout_constraintTop_toBottomOf="@id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView" />
 
         <Button
             android:id="@+id/back_to_beranda"
@@ -46,6 +48,7 @@
             android:layout_marginTop="16dp"
             android:textSize="20sp"
             android:text="@string/back_to_home"
+            android:fontFamily="@font/quicksand_bold"
             android:backgroundTint="@color/colorYellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

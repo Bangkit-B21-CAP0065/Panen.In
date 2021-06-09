@@ -26,32 +26,35 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/primaryColor"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="20dp"
+            android:fontFamily="@font/quicksand_bold"
             android:gravity="center"
             android:paddingTop="6dp"
             android:text="@string/title_welcome_1"
+            android:textColor="@color/primaryColor"
             android:textSize="32sp"
-            android:fontFamily="@font/quicksand_bold"
             app:layout_constraintBottom_toTopOf="@id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:layout_marginBottom="150dp"
-            android:textColor="@color/primaryColor"
+            android:fontFamily="@font/quicksand"
             android:gravity="center"
             android:paddingTop="6dp"
             android:text="@string/text_welcome_1"
+            android:textColor="@color/primaryColor"
             android:textSize="16sp"
-            android:fontFamily="@font/quicksand"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <ImageButton
             android:id="@+id/button1"
