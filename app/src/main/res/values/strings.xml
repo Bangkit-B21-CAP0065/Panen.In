@@ -112,6 +112,7 @@
     <string name="success_txt">Pesananmu sedang diproses ...</string>
     <string name="back_to_home">KEMBALI KE BERANDA</string>
     <string name="success_image">success image</string>
+    <string name="button">button</string>
 
     <string-array name="region_list">
         <item>Bandung</item>
