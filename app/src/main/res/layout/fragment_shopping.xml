@@ -19,9 +19,11 @@
             android:layout_marginBottom="60dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:listitem="@layout/item_ecommerce"/>
+            app:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/item_ecommerce" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/checkout_button"
@@ -34,7 +36,8 @@
             android:contentDescription="@string/cart"
             android:src="@drawable/ic_baseline_shopping_cart_24"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent"
+            app:elevation="0dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
