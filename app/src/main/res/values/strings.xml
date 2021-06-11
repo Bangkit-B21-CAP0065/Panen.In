@@ -72,6 +72,7 @@
     <string name="description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
     <string name="string_description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
     <string name="description_image_welcome_slide_1">Gambar bakul sayuran</string>
+    <string name="image_logo_panenin">Image logo Panenin</string>
 
     <string-array name="region_list">
         <item>Jawa Barat</item>
