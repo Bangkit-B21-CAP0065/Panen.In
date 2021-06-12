@@ -19,7 +19,7 @@ class CropPredictionViewModel : ViewModel() {
 
     fun setCropPrediction(city: String, commodity: String, duration: String) {
 
-        val url = "http://34.101.212.102/api/panen?kota=$city&crop=$commodity&bulan=$duration"
+        val url = "http://35.184.194.249/api/panen?kota=$city&crop=$commodity&bulan=$duration"
 
         val client = AsyncHttpClient()
         client.get(url, object : AsyncHttpResponseHandler() {
@@ -35,7 +35,6 @@ class CropPredictionViewModel : ViewModel() {
                     statusFailure.value = true
                 }
             }
-
             override fun onFailure(statusCode: Int, headers: Array<Header>, responseBody: ByteArray, error: Throwable) {
                 Log.d("onFailure", error.message.toString())
                 statusFailure.value = true

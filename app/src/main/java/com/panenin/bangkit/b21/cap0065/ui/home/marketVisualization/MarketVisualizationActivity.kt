@@ -2,6 +2,7 @@ package com.panenin.bangkit.b21.cap0065.ui.home.marketVisualization
 
 import android.graphics.Paint
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
@@ -98,6 +99,10 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         }
 
         binding.visualizationButton.setOnClickListener{
+            mChart.setNoDataText(getString(R.string.search_prices_visualization_now))
+            val p: Paint = mChart.getPaint(Chart.PAINT_INFO)
+            p.textSize = 60f
+            mChart.invalidate()
             marketPriceViewModel.setCommodityPrices(chosenYear, chosenRegion.toLowerCase(), chosenCommodity.toLowerCase())
         }
 
@@ -143,9 +148,9 @@ class MarketVisualizationActivity : AppCompatActivity(), AdapterView.OnItemSelec
         for(i in 0 until countLineNumber){
             var dataFloatPrice = 0f
             when(chosenPricesPosition){
-                "0" -> dataFloatPrice = listPrice[i].averagePrice.toFloat()
-                "1" -> dataFloatPrice = listPrice[i].maxPrice.toFloat()
-                "2" -> dataFloatPrice = listPrice[i].minPrice.toFloat()
+                "0" -> dataFloatPrice = listPrice[i].averagePrice?.toFloat()!!
+                "1" -> dataFloatPrice = listPrice[i].maxPrice?.toFloat()!!
+                "2" -> dataFloatPrice = listPrice[i].minPrice?.toFloat()!!
             }
             lineEntries.add(Entry(dataFloatPrice, i))
         }

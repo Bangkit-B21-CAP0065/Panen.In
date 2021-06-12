@@ -115,13 +115,13 @@ class CropRecommendationActivity : AppCompatActivity(), AdapterView.OnItemSelect
 
         val entries = ArrayList<BarEntry>()
         for(i in 0 until countPredictionNumber){
-            val dataPrediction = dataPrediction[i]
-            var dataFloatPrediction = if (dataPrediction is Double) dataPrediction.toFloat()
-                                  else dataPrediction as Float
+            val dataPredictionTemp = dataPrediction[i]
+            var dataFloatPrediction = if (dataPredictionTemp is Double) dataPredictionTemp.toFloat()
+                                  else dataPredictionTemp as Float
             entries.add(BarEntry(dataFloatPrediction, i))
         }
 
-        val barDataSet = BarDataSet(entries, "Prediksi dalam satuan ton")
+        val barDataSet = BarDataSet(entries, "Prediksi dalam satuan Ku/Ha")
 
         val labels = ArrayList<String>()
         for (i in 1..countPredictionNumber) {
@@ -141,7 +141,10 @@ class CropRecommendationActivity : AppCompatActivity(), AdapterView.OnItemSelect
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         when (parent?.id) {
-            R.id.region_dropdown -> chosenRegion = parent.selectedItem.toString().toLowerCase()
+            R.id.region_dropdown -> {
+                chosenRegion = parent.selectedItem.toString().toLowerCase()
+                if(parent.selectedItem.toString() == getString(R.string.paddy)) getString(R.string.rice)
+            }
             R.id.plant_type_dropdown -> chosenPlantType = parent.selectedItem.toString().toLowerCase()
             R.id.duration_dropdown -> chosenDuration = parent.selectedItem.toString()
         }

@@ -11,17 +11,17 @@
         android:roundIcon="@drawable/logo_panenin_polos"
         android:supportsRtl="true"
         android:theme="@style/Theme.PanenIn">
-        <activity android:name=".ui.shopping.PaymentConfirmationActivity"></activity>
+        <activity android:name=".ui.shopping.PaymentConfirmationActivity"/>
         <activity android:name=".ui.shopping.CheckoutActivity" />
-        <activity android:name=".WelcomeActivity" /> <!-- <activity android:name=".SplashActivity" -->
-        <!-- android:theme="@style/Theme.PanenIn.NoActionBar"> -->
-        <activity android:name=".MainActivity">
+        <activity android:name=".WelcomeActivity" />
+         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".ui.home.marketVisualization.MarketVisualizationActivity" />
         <activity android:name=".ui.home.recommendationCrop.CropRecommendationActivity" />
         <activity android:name=".ui.home.weather.WeatherPredictActivity" />
