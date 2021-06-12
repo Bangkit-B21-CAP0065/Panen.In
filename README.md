@@ -34,8 +34,10 @@ To run this project, follow these steps:
   4. Wait for Gradle to finish build / synchronize build.gradle:app    
     Notes: This step will install all needed dependencies 
 
-  5. Create new emulator (virtual device) or you can use your own device  
+  5. Add this file bit.ly/localPropertiesFile in root folder
+ 
+  6. Create new emulator (virtual device) or you can use your own device  
     - If you use virtual device, make sure to configure virtualization and HAXM  
     - If you use real-device make sure to configure developer options (turn on USB Debugging)
 
-  6. Run the android app in emulator
+  7. Run the android app in emulator
