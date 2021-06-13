@@ -16,11 +16,13 @@
             android:id="@+id/imageView"
             android:layout_width="match_parent"
             android:layout_height="300dp"
-            android:src="@drawable/image_slide_1"
+            android:src="@drawable/image_success_page"
             android:layout_marginTop="48dp"
+            android:contentDescription="@string/success_image"
             app:layout_constraintBottom_toTopOf="@id/textView"
-            android:contentDescription="@string/description_image_welcome_slide_1"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            tools:layout_editor_absoluteX="0dp" />
 
         <TextView
             android:id="@+id/textView"
@@ -28,29 +30,26 @@
             android:layout_height="wrap_content"
             android:textColor="@color/primaryColor"
             android:layout_marginBottom="20dp"
-            android:gravity="center"
+            android:gravity="start"
             android:paddingTop="6dp"
-            android:text="@string/title_welcome_1"
+            android:text="@string/success_txt"
             android:textSize="32sp"
             android:fontFamily="@font/quicksand_bold"
-            app:layout_constraintBottom_toTopOf="@id/textView2"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"/>
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/back_to_beranda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="150dp"
-            android:textColor="@color/primaryColor"
-            android:gravity="center"
-            android:paddingTop="6dp"
-            android:text="@string/text_welcome_1"
-            android:textSize="16sp"
-            android:fontFamily="@font/quicksand"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:textSize="20sp"
+            android:text="@string/back_to_home"
+            android:backgroundTint="@color/colorYellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteX="0dp" />
+            app:layout_constraintTop_toBottomOf="@id/textView"
+            />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

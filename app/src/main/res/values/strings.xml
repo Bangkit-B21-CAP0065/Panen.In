@@ -108,7 +108,10 @@
     <string name="confirm_order">KONFIRMASI PEMBAYARAN</string>
     <string name="cancel_order_x">X Batalkan Pesanan</string>
     <string name="confirm_order_title">Konfirmasi Pesanan</string>
->>>>>>> f5e3749c6528b4c9b3c77ce16cf849456c60846a
+
+    <string name="success_txt">Pesananmu sedang diproses ...</string>
+    <string name="back_to_home">KEMBALI KE BERANDA</string>
+    <string name="success_image">success image</string>
 
     <string-array name="region_list">
         <item>Bandung</item>
