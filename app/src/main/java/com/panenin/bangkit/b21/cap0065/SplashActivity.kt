@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.panenin.bangkit.b21.cap0065.databinding.ActivitySplashBinding
+import com.panenin.bangkit.b21.cap0065.ui.welcome.WelcomeActivity
 
 
 class SplashActivity : AppCompatActivity() {
@@ -17,9 +18,11 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, WelcomeActivity::class.java))
 
             finish()
         }, SPLASH_TIME_OUT)
+
+        supportActionBar?.hide()
     }
 }

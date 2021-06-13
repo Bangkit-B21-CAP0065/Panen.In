@@ -30,7 +30,7 @@
     <string name="choose_duration_tag">Pilih durasi</string>
     <string name="predict_now">Prediksi Sekarang</string>
     <string name="number_prediction_text">00.000</string>
-    <string name="unit_prediction">Ton per Hektar</string>
+    <string name="unit_prediction">Ku/Ha</string>
     <string name="choose_year_tag">Pilih Tahun</string>
     <string name="year_tag">Tahun</string>
     <string name="region_tag">Kawasan</string>
@@ -57,14 +57,66 @@
     <string name="info_panenIn_tag">Informasi Panen.In</string>
     <string name="privacy_policy_tag">Kebijakan Privasi</string>
     <string name="logout_tag">Logout</string>
+    <string name="plus">+</string>
+    <string name="default_item_count">0</string>
+    <string name="minus">-</string>
     <string name="input_city">Masukkan kota</string>
     <string name="search">Cari</string>
     <string name="explain_duration_tag">x 4 Bulan</string>
     <string name="related_to_tag">Harga</string>
+    <string name="sorry_cannot_find_city">Mohon maaf, kota tidak ditemukan.</string>
+    <string name="sorry_data_not_provide">Mohon maaf, data belum tersedia.</string>
+    <string name="price_in_rupiah">Harga dalam Rupiah</string>
+    <string name="search_prices_visualization_now">Cari visualisasi harga pasar sekarang !</string>
+    <string name="description_image_welcome_slide_3">Gambar wanita memegang hp di depan kebun</string>
+    <string name="description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="string_description_image_welcoming_slide_2">Gambar pemandangan sawah</string>
+    <string name="description_image_welcome_slide_1">Gambar bakul sayuran</string>
+    <string name="image_logo_panenin">Image logo Panenin</string>
+    <string name="paddy">Padi</string>
+    <string name="rice">beras</string>
+    <string name="cart">Cart</string>
+    <string name="order_id_text">ORDER ID: #190211246390</string>
+    <string name="send_to">Diantar ke</string>
+    <string name="address">Puri Indah Garini blok C no.3</string>
+    <string name="edit">edit</string>
+    <string name="location">location</string>
+    <string name="date">SELASA, 20 OKT 2020</string>
+    <string name="time">20:21</string>
+    <string name="order_text">PESANAN</string>
+    <string name="send_method_text">METODE PENGIRIMAN</string>
+    <string name="payment_method_text">METODE PEMBAYARAN</string>
+    <string name="payment_detail_text">DETAIL PEMBAYARAN</string>
+    <string name="order_now">PESAN SEKARANG</string>
+    <string name="bibit_image">bibit</string>
+    <string name="price_text">Rp150.000</string>
+    <string name="bibit_name">Bibit Kopi</string>
+    <string name="qty_txt">3</string>
+    <string name="send_method">JNE</string>
+    <string name="payment_method">BNI</string>
+    <string name="harga">Harga</string>
+    <string name="angka_harga">Rp 150.000</string>
+    <string name="discount">Discount</string>
+    <string name="discount_txt">-Rp 0</string>
+    <string name="ongkos_kirim">Biaya Pengiriman</string>
+    <string name="ongkir_txt">Rp 10.000</string>
+    <string name="total_pembayaran">Total Pembayaran</string>
+    <string name="total_txt">Rp 160.000</string>
+    <string name="success_order_txt">PESANAN BERHASIL DIBUAT</string>
+    <string name="send_from">LOKASI PEMBELIAN</string>
+    <string name="address_buy">Grand Indonesia</string>
+    <string name="confirm_order">KONFIRMASI PEMBAYARAN</string>
+    <string name="cancel_order_x">X Batalkan Pesanan</string>
+    <string name="confirm_order_title">Konfirmasi Pesanan</string>
+
+    <string name="success_txt">Pesananmu sedang diproses ...</string>
+    <string name="back_to_home">KEMBALI KE BERANDA</string>
+    <string name="success_image">success image</string>
+    <string name="button">button</string>
 
     <string-array name="region_list">
-        <item>Jawa Barat</item>
-        <item>Jawa Tengah</item>
+        <item>Bandung</item>
+        <item>Bogor</item>
     </string-array>
 
     <string-array name="plant_type_list">

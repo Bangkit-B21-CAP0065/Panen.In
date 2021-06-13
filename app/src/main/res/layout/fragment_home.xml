@@ -28,6 +28,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:fontFamily="@font/quicksand_bold"
             android:text="@string/panen_in"
             android:textAlignment="center"
             android:textColor="@color/brown_700"
@@ -45,6 +46,7 @@
             android:layout_marginStart="8dp"
             android:layout_marginEnd="8dp"
             android:text="@string/text_jargon"
+            android:fontFamily="@font/quicksand_bold"
             android:textAlignment="center"
             android:textColor="@color/brown_700"
             android:textSize="17sp"
@@ -58,12 +60,16 @@
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:orientation="vertical"
             app:cardCornerRadius="4dp"
             app:cardElevation="4dp"
             app:cardMaxElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/img_poster"
+            app:layout_constraintEnd_toStartOf="@+id/button_recommend_crop"
+            app:layout_constraintStart_toStartOf="@+id/text_jargon"
             app:layout_constraintTop_toBottomOf="@+id/text_jargon">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -94,14 +100,15 @@
                     android:ellipsize="end"
                     android:gravity="start"
                     android:maxLines="2"
+                    android:text="@string/weather_predict_button_tag"
+                    android:textColor="@color/brown_700"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:textColor="@color/brown_700"
+                    android:fontFamily="@font/quicksand_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/button_sunny"
-                    android:text="@string/weather_predict_button_tag" />
+                    app:layout_constraintTop_toBottomOf="@+id/button_sunny" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -113,12 +120,16 @@
             android:layout_height="100dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:orientation="vertical"
             app:cardCornerRadius="4dp"
             app:cardElevation="4dp"
             app:cardMaxElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:layout_constraintStart_toEndOf="@+id/button_predict_weather"
+            app:layout_constraintBottom_toTopOf="@+id/img_poster"
+            app:layout_constraintEnd_toEndOf="@+id/text_jargon"
+            app:layout_constraintStart_toStartOf="@+id/text_jargon"
             app:layout_constraintTop_toBottomOf="@+id/text_jargon">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -147,14 +158,15 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:maxLines="2"
+                    android:text="@string/reccomendation_crop_tag"
                     android:textColor="@color/brown_700"
                     android:textSize="12sp"
                     android:textStyle="bold"
+                    android:fontFamily="@font/quicksand_bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/icon_crop"
-                    android:text="@string/reccomendation_crop_tag" />
+                    app:layout_constraintTop_toBottomOf="@+id/icon_crop" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -167,12 +179,14 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:orientation="vertical"
             app:cardCornerRadius="4dp"
             app:cardElevation="4dp"
             app:cardMaxElevation="4dp"
             app:cardUseCompatPadding="true"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/img_poster"
+            app:layout_constraintEnd_toEndOf="@+id/text_jargon"
             app:layout_constraintStart_toEndOf="@+id/button_recommend_crop"
             app:layout_constraintTop_toBottomOf="@+id/text_jargon">
 
@@ -202,6 +216,7 @@
                     android:ellipsize="end"
                     android:gravity="center_horizontal"
                     android:maxLines="2"
+                    android:fontFamily="@font/quicksand_bold"
                     android:text="@string/market_visualization_tag"
                     android:textColor="@color/brown_700"
                     android:textSize="12sp"
